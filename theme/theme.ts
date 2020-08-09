@@ -2,6 +2,11 @@ import { theme as chakraTheme } from "@chakra-ui/core";
 
 export const theme = {
   ...chakraTheme,
+  fonts: {
+    heading: '"Open Sans Condensed",Open Sans',
+    body: '"Open Sans Condensed",Open Sans',
+    mono: '""',
+  },
   colors: {
     ...chakraTheme.colors,
     primary: {
@@ -15,6 +20,18 @@ export const theme = {
       700: "#060978",
       800: "#02054a",
       900: "#00011f",
+    },
+    secondary: {
+      50: "#ffe2ff",
+      100: "#f4b1ff",
+      200: "#eb7fff",
+      300: "#e14cff",
+      400: "#d91aff",
+      500: "#bf00e6",
+      600: "#9500b4",
+      700: "#6b0081",
+      800: "#410050",
+      900: "#18001f",
     },
   },
 };
