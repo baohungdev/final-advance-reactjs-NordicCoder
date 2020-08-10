@@ -12,6 +12,8 @@ import { FcHome } from "react-icons/fc";
 import { NavMenu } from "./NavMenu";
 import { FlexNavItem } from "./FlexNavItem";
 import { useState } from "react";
+import { FlexContainer } from "./FlexContainer";
+
 import { theme } from "../../theme";
 
 export const Header = () => {
@@ -24,7 +26,7 @@ export const Header = () => {
         backgroundColor={theme.colors.primary[100]}
         justifyContent="center"
       >
-        <Flex flex="0 1 100rem" maxWidth="80rem">
+        <FlexContainer>
           <FlexNavItem display={[show ? "Flex" : "none", null, "Flex"]}>
             <Box width="10rem" flex="0 0 auto">
               {/* <img src="https://frontend.tikicdn.com/img/tiki.svg" alt="" /> */}
@@ -36,7 +38,7 @@ export const Header = () => {
           </FlexNavItem>
 
           <FlexNavItem flex="1 1 auto">
-            <InputGroup flex="1 1 40rem" maxWidth="40rem">
+            <InputGroup flex="0 1 40rem">
               <Input
                 onBlur={() => setShow(true)}
                 onFocus={() => setShow(false)}
@@ -48,11 +50,11 @@ export const Header = () => {
               </InputRightElement>
             </InputGroup>
           </FlexNavItem>
-          <NavMenu display={["none", "none", "flex"]} flex="0"></NavMenu>
-        </Flex>
+          <NavMenu display={["none", null, "flex"]} flex="0"></NavMenu>
+        </FlexContainer>
       </Flex>
       <NavMenu
-        display={["flex", "flex", "none"]}
+        display={["flex", null, "none"]}
         position="fixed"
         bottom="0"
       ></NavMenu>
