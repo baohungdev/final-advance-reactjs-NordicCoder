@@ -2,11 +2,6 @@ import { theme as chakraTheme } from "@chakra-ui/core";
 
 export const theme = {
   ...chakraTheme,
-  fonts: {
-    body: "monospace, monospace",
-    heading: "monospace, monospace",
-    mono: "Menlo, monospace",
-  },
   colors: {
     ...chakraTheme.colors,
     primary: {

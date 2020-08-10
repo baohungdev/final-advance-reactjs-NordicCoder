@@ -29,7 +29,6 @@ export const Header = () => {
         <FlexContainer>
           <FlexNavItem display={[show ? "Flex" : "none", null, "Flex"]}>
             <Box width="10rem" flex="0 0 auto">
-              {/* <img src="https://frontend.tikicdn.com/img/tiki.svg" alt="" /> */}
               <img
                 src="https://salt.tikicdn.com/ts/banner/33/ba/89/54c02d2475983f93a024c0cd13f238e4.png"
                 alt=""

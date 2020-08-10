@@ -6,10 +6,10 @@ class MyDocument extends Document {
       <Html lang="zh-Hans">
         <Head>
           <link
-            as="font"
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Noto+Serif+SC:wght@500&display=swap"
             rel="preload"
-          ></link>
+            as="style"
+          />
         </Head>
         <body>
           <Main />
