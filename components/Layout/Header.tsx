@@ -39,7 +39,9 @@ export const Header = () => {
 
           <FlexNavItem flex="1 1 auto">
             <InputGroup flex="0 1 40rem">
+              <label htmlFor="product-search-bar" aria-label="search"></label>
               <Input
+                id="product-search-bar"
                 onBlur={() => setShow(true)}
                 onFocus={() => setShow(false)}
                 placeholder="Search"
