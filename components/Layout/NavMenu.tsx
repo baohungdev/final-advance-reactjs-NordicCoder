@@ -29,7 +29,7 @@ export const NavMenu: React.FC<FlexProps> = (props) => {
       </FlexNavItem>
 
       <FlexNavItem>
-        <NavLinkButton leftIcon={IoMdPerson}>Đăng nhập</NavLinkButton>
+        <NavLinkButton leftIcon={IoMdPerson}>Login</NavLinkButton>
       </FlexNavItem>
     </Flex>
   );
