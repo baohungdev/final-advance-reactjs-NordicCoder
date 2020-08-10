@@ -30,26 +30,17 @@ const Home = () => {
   return (
     <Layout>
       <Flex as="section" justifyContent="center" backgroundColor="#F9F9F9">
-        <FlexContainer padding="4rem" flexWrap={"wrap"}>
+        <FlexContainer padding="3rem" flexWrap={"wrap"}>
           <Grid
             width="100%"
             templateColumns="repeat(auto-fill, minmax(12em, 1fr))"
             gap={["2rem", "2rem", "5rem"]}
           >
-            {products.map((product: IProduct) => (
-              <ProductCard
-                key={product.id}
-                imgUrl={product.imgUrl}
-                id={product.id}
-                price={product.price}
-                name={product.name}
-                namePath={product.namePath}
-              />
-            ))}
+            {productCards}
           </Grid>
-          <PaginationBar page={page} maxPage={maxPage} />
         </FlexContainer>
       </Flex>
+          <PaginationBar page={page} maxPage={maxPage} />
     </Layout>
   );
 };
