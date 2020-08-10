@@ -11,7 +11,7 @@ export const theme = {
     ...chakraTheme.colors,
     primary: {
       50: "#e6e6ff",
-      100: "#b7b8fe",
+      100: "#189EFF",
       200: "#8889f7",
       300: "#595af2",
       400: "#2b2bed",

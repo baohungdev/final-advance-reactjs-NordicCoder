@@ -12,18 +12,24 @@ import { FcHome } from "react-icons/fc";
 import { NavMenu } from "./NavMenu";
 import { FlexNavItem } from "./FlexNavItem";
 import { useState } from "react";
+import { theme } from "../../theme";
 
 export const Header = () => {
   const [show, setShow] = useState(true);
 
   return (
     <>
-      <Flex as="header" backgroundColor="black" justifyContent="center">
+      <Flex
+        as="header"
+        backgroundColor={theme.colors.primary[100]}
+        justifyContent="center"
+      >
         <Flex flex="0 1 100rem" maxWidth="80rem">
           <FlexNavItem display={[show ? "Flex" : "none", null, "Flex"]}>
             <Box width="10rem" flex="0 0 auto">
+              {/* <img src="https://frontend.tikicdn.com/img/tiki.svg" alt="" /> */}
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Zoom_Communications_Logo.svg/1280px-Zoom_Communications_Logo.svg.png"
+                src="https://salt.tikicdn.com/ts/banner/33/ba/89/54c02d2475983f93a024c0cd13f238e4.png"
                 alt=""
               />
             </Box>
