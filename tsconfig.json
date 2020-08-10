@@ -24,7 +24,7 @@
     "include": [
         "next-env.d.ts",
         "**/*.ts",
-        "**/*.tsx", "pages/_app.jsx", "utils/withApollo.js"
+        "**/*.tsx", "pages/_app.jsx", "utils/withApollo.js", "components/ProductCard/index.jsx"
     ],
     "noImplicitAny": false
 }

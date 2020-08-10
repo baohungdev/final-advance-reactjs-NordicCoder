@@ -10,17 +10,20 @@ import { GET_ALL_PRODUCTS } from "../components/graphql/product/getAllProduct.qu
 import { IProduct } from "../interfaces";
 import { usePagination } from "../hooks/usePagination";
 import { PaginationBar } from "../components/PaginationBar/PaginationBar";
+import { BallBeat } from 'react-pure-loaders';
+import Loading from "../components/Loading/Loading";
+import ReactLoading from 'react-loading'
 const Home = () => {
   const { loading, error, data } = useQuery(GET_ALL_PRODUCTS, {
     variables: {
       input: {
         page: 1,
-        keyword: "Iphone 11",
+        keyword: "Apple Iphone 11",
       },
     },
   });
   if (error) return <h1>Error</h1>;
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) return <BallBeat/>
 
   const products = data?.getAllProduct?.data;
   if (!products || !products.length) {

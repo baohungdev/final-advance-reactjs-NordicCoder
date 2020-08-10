@@ -6,3 +6,4 @@ export function ucFirstAllWords(str: string) {
   }
   return pieces.join(" ");
 }
+

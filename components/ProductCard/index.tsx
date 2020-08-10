@@ -7,16 +7,20 @@ import {
   PseudoBox,
   Skeleton,
   Text,
+  theme,
 } from "@chakra-ui/core";
 import NextLink from "next/link";
 import React, { useState } from "react";
 import { IProduct } from "../../interfaces";
 import { ucFirstAllWords } from "../../utils";
+import styled from "@emotion/styled";
+var numeral = require('numeral');
 
 export const ProductCard: React.FC<IProduct> = (props) => {
   const [loading, setLoading] = useState(true);
+  // console.log(theme.colors.black)
   return (
-    <NextLink href="/products/[id]" as={`/products/${props.namePath}`} passHref>
+    <NextLink href="/detail/[id]" as={`/detail/${props.id}`} passHref>
       <Link
         _hover={{
           textDecoration: "none",
@@ -30,7 +34,7 @@ export const ProductCard: React.FC<IProduct> = (props) => {
           display="flex"
           flexWrap="wrap"
           borderWidth="2px"
-          borderColor="#BBB"
+          borderColor="blue.300"
           overflow="hidden"
         >
           <Box
@@ -68,10 +72,29 @@ export const ProductCard: React.FC<IProduct> = (props) => {
             backgroundColor="white"
             justifyContent="center"
           >
-            <Button variantColor="primary">{props.price}$</Button>
+            <Text width="100%" color="blue.800" textAlign="center" isTruncated>
+              {numeral(props.finalPrice).format('0,0[.]00')} 
+            </Text>
+            <StyledButton
+              marginLeft="3px"
+              size="xs"
+              height="30px"
+              width="200px"
+              border="1px"
+              borderColor="blue.300"
+              // variantColor="black"
+            >
+              Buy It Now
+            </StyledButton>{" "}
           </Flex>
         </PseudoBox>
       </Link>
     </NextLink>
   );
 };
+
+const StyledButton = styled(Button)`
+  &:hover {
+    background-color: #fff;
+  }
+`
