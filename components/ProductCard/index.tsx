@@ -35,7 +35,7 @@ export const ProductCard: React.FC<IProduct> = (props) => {
           borderWidth="2px"
           borderColor="blue.200"
           overflow="hidden"
-          _hover={{ borderColor: "blue.500", bg: "gray.200" }}
+          _hover={{ borderColor: "blue.500" }}
           borderRadius="5px"
         >
           <Box
@@ -110,6 +110,6 @@ const StyledButton = styled(Button)`
 
 const StyledLink = styled(Link)`
   &:hover {
-    background-color: #bbb;
+    background-color: #fff;
   }
 `

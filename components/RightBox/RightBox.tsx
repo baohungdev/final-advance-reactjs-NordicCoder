@@ -3,12 +3,13 @@ import { Flex, Image, Divider, Text, Button } from '@chakra-ui/core'
 import { IoIosArrowDropleftCircle, IoMdCart } from 'react-icons/io'
 import ReactHtmlParser from 'react-html-parser';
 import styled from '@emotion/styled';
-import { withRouter } from 'next/router'
+import { withRouter, Router } from 'next/router'
 type IRightBox = {
     images: string[];
     name: string;
     price: number;
     description: string;
+    router: Router
 }
 
 
