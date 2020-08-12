@@ -11,14 +11,16 @@ import {
   Tooltip,
 } from "@chakra-ui/core";
 import NextLink from "next/link";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { IProduct } from "../../interfaces";
 import { ucFirstAllWords } from "../../utils";
 import styled from "@emotion/styled";
+import { CartContext } from "../../providers/cart/cart.provider";
 var numeral = require("numeral");
 
 export const ProductCard: React.FC<IProduct> = (props) => {
-  const [loading, setLoading] = useState(true);
+  const { addItem } = useContext(CartContext);
+  const [Loading, setLoading] = useState(true);
   return (
     <NextLink href="/detail/[id]" as={`/detail/${props.id}`} passHref>
       <Link
@@ -45,7 +47,7 @@ export const ProductCard: React.FC<IProduct> = (props) => {
             borderBottomWidth="1px"
             borderColor="#BBB"
           >
-            <Skeleton isLoaded={!loading}>
+            <Skeleton isLoaded={!Loading}>
               <Image
                 width="100%"
                 height="13rem"
@@ -98,8 +100,11 @@ export const ProductCard: React.FC<IProduct> = (props) => {
                 width="150px"
                 border="1px"
                 borderColor="red.500"
+                variantColor="teal"
+                variant="outline"
                 onClick={() => {
                   console.log(props.id);
+                  addItem(props.id);
                 }}
               >
                 Buy it !

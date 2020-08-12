@@ -9,6 +9,8 @@ import {
   DrawerHeader,
   DrawerBody,
 } from "@chakra-ui/core";
+import NextLink from "next/link";
+
 import { FlexNavItem } from "./FlexNavItem";
 import { IoMdList, IoMdCart, IoMdPerson, IoMdHome } from "react-icons/io";
 import { FcHome } from "react-icons/fc";
@@ -45,10 +47,13 @@ export const NavMenu: React.FC<FlexProps> = (props) => {
           <DrawerContent>
             <DrawerHeader borderBottomWidth="1px">Apple</DrawerHeader>
             <DrawerBody>
-              <p>Coming soon...</p>
-              <p>Coming soon...</p>
-              <p>Coming soon...</p>
-              <p>Coming soon...</p>
+              <NextLink href={`/search?q=Iphone-11`}>Iphone 11</NextLink>
+              <br/>
+              <NextLink href={`/search?q=Iphone-11-pro`}>Iphone 11 Pro</NextLink>
+              <br/>
+              <NextLink href={`/search?q=Iphone-11-pro-max`}>Iphone 11 Pro Max</NextLink>
+              <br/>
+              <p>Iphone 11 Pro Max</p>
             </DrawerBody>
             <DrawerHeader borderBottomWidth="1px">Samsung</DrawerHeader>
             <DrawerBody>

@@ -1,24 +1,16 @@
 import { Layout } from "../components/Layout";
 import React from "react";
-import {
-  Flex,
-  Text,
-  CircularProgress,
-  Spinner,
-  Progress,
-} from "@chakra-ui/core";
+import { Flex, Text, AspectRatioBox, Box } from "@chakra-ui/core";
 import { Grid } from "@chakra-ui/core/dist";
-import { ProductCard } from "../components/ProductCard";
 import { FlexContainer } from "../components/Layout/FlexContainer";
 import { useQuery } from "@apollo/react-hooks";
 import withApollo from "../utils/withApollo";
 import { GET_ALL_PRODUCTS } from "../components/graphql/product/getAllProduct.query";
-import { IProduct } from "../interfaces";
+
 import { usePagination } from "../hooks/usePagination";
 import { PaginationBar } from "../components/PaginationBar/PaginationBar";
-import { PushSpinner, GooSpinner, PongSpinner } from "react-spinners-kit";
-import { Header } from "../components/Layout/Header";
-import { Footer } from "../components/Layout/Footer";
+import { PongSpinner } from "react-spinners-kit";
+import GoogleMap from "../components/Map/Map";
 
 const Home = () => {
   const { loading, error, data } = useQuery(GET_ALL_PRODUCTS, {
@@ -55,9 +47,11 @@ const Home = () => {
           >
             {productCards}
           </Grid>
+          <GoogleMap />
         </FlexContainer>
       </Flex>
       <PaginationBar page={page} maxPage={maxPage} />
+      {/* <GoogleMap /> */}
     </Layout>
   );
 };
