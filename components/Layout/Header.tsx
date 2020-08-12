@@ -5,7 +5,7 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/core";
-
+import NextLink from "next/link";
 import Head from "next/head";
 import { IoMdSearch } from "react-icons/io";
 import { FcHome } from "react-icons/fc";
@@ -19,7 +19,7 @@ import styled from "@emotion/styled";
 
 export const Header = () => {
   const [show, setShow] = useState(true);
-
+  const [value, setValue] = useState("");
   return (
     <>
       <Flex
@@ -46,9 +46,15 @@ export const Header = () => {
                 onFocus={() => setShow(false)}
                 placeholder="Search"
                 focusBorderColor="primary.400"
+                value={value}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setValue(e.currentTarget.value);
+              }}
               ></StyledInput>
               <InputRightElement>
-                <Box as={IoMdSearch} size="2rem" color="#fff"></Box>
+                <NextLink href={`/search?q=${value}`}>
+                  <Box as={IoMdSearch} size="2rem" color="#ccc"></Box>
+                </NextLink>
               </InputRightElement>
             </InputGroup>
           </FlexNavItem>
@@ -68,4 +74,4 @@ const StyledInput = styled(Input)`
   ::placeholder {
     color: #fff;
   }
-`
+`;

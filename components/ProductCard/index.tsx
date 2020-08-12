@@ -85,6 +85,7 @@ export const ProductCard: React.FC<IProduct> = (props) => {
             margin="auto"
           >
             <Tooltip
+              aria-label="hung"
               hasArrow
               label="Add To Cart"
               placement="bottom"
