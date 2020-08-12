@@ -1,13 +1,29 @@
-import { Flex, Button, FlexProps, ButtonProps } from "@chakra-ui/core";
+import {
+  Flex,
+  Button,
+  FlexProps,
+  ButtonProps,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+} from "@chakra-ui/core";
 import { FlexNavItem } from "./FlexNavItem";
 import { IoMdList, IoMdCart, IoMdPerson, IoMdHome } from "react-icons/io";
 import { FcHome } from "react-icons/fc";
 import { theme } from "../../theme";
+import { useToast } from "@chakra-ui/core";
+import { useDisclosure } from "@chakra-ui/core";
+
 const NavLinkButton: React.FC<ButtonProps> = (props) => (
   <Button variant="link" color="white" {...props}></Button>
 );
 
 export const NavMenu: React.FC<FlexProps> = (props) => {
+  const toast = useToast();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Flex
       {...props}
@@ -21,7 +37,28 @@ export const NavMenu: React.FC<FlexProps> = (props) => {
       </FlexNavItem>
 
       <FlexNavItem>
-        <NavLinkButton leftIcon={IoMdList}>List</NavLinkButton>
+        <NavLinkButton leftIcon={IoMdList} onClick={onOpen}>
+          List
+        </NavLinkButton>
+        <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerHeader borderBottomWidth="1px">Apple</DrawerHeader>
+            <DrawerBody>
+              <p>Coming soon...</p>
+              <p>Coming soon...</p>
+              <p>Coming soon...</p>
+              <p>Coming soon...</p>
+            </DrawerBody>
+            <DrawerHeader borderBottomWidth="1px">Samsung</DrawerHeader>
+            <DrawerBody>
+              <p>Coming soon...</p>
+              <p>Coming soon...</p>
+              <p>Coming soon...</p>
+              <p>Coming soon...</p>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
       </FlexNavItem>
 
       <FlexNavItem>
@@ -29,7 +66,20 @@ export const NavMenu: React.FC<FlexProps> = (props) => {
       </FlexNavItem>
 
       <FlexNavItem>
-        <NavLinkButton leftIcon={IoMdPerson}>Login</NavLinkButton>
+        <NavLinkButton
+          leftIcon={IoMdPerson}
+          onClick={() =>
+            toast({
+              title: "Coming soon",
+              description: "Unable to create user account.",
+              status: "error",
+              duration: 9000,
+              isClosable: true,
+            })
+          }
+        >
+          Login
+        </NavLinkButton>
       </FlexNavItem>
     </Flex>
   );

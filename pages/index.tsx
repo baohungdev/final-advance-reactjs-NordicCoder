@@ -1,6 +1,12 @@
 import { Layout } from "../components/Layout";
 import React from "react";
-import { Flex, Text } from "@chakra-ui/core";
+import {
+  Flex,
+  Text,
+  CircularProgress,
+  Spinner,
+  Progress,
+} from "@chakra-ui/core";
 import { Grid } from "@chakra-ui/core/dist";
 import { ProductCard } from "../components/ProductCard";
 import { FlexContainer } from "../components/Layout/FlexContainer";
@@ -10,18 +16,28 @@ import { GET_ALL_PRODUCTS } from "../components/graphql/product/getAllProduct.qu
 import { IProduct } from "../interfaces";
 import { usePagination } from "../hooks/usePagination";
 import { PaginationBar } from "../components/PaginationBar/PaginationBar";
+import { PushSpinner, GooSpinner, PongSpinner } from "react-spinners-kit";
+import { Header } from "../components/Layout/Header";
+import { Footer } from "../components/Layout/Footer";
 
 const Home = () => {
   const { loading, error, data } = useQuery(GET_ALL_PRODUCTS, {
     variables: {
       input: {
         page: 1,
-        keyword: "Apple Iphone 11",
+        keyword: "Apple Iphone 11 Pro Max",
       },
     },
   });
-  if (error) return <h1>Error</h1>;
-  if (loading) return <h1>Loading...</h1>
+  if (error) return <Layout></Layout>;
+  if (loading)
+    return (
+      <Layout>
+        <Text>
+          <PongSpinner size={100} color="#686769" loading={true}></PongSpinner>
+        </Text>
+      </Layout>
+    );
 
   const products = data?.getAllProduct?.data;
   if (!products || !products.length) {
@@ -41,7 +57,7 @@ const Home = () => {
           </Grid>
         </FlexContainer>
       </Flex>
-          <PaginationBar page={page} maxPage={maxPage} />
+      <PaginationBar page={page} maxPage={maxPage} />
     </Layout>
   );
 };

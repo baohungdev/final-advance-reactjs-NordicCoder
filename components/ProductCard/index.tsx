@@ -8,13 +8,14 @@ import {
   Skeleton,
   Text,
   theme,
+  Tooltip,
 } from "@chakra-ui/core";
 import NextLink from "next/link";
 import React, { useState } from "react";
 import { IProduct } from "../../interfaces";
 import { ucFirstAllWords } from "../../utils";
 import styled from "@emotion/styled";
-var numeral = require('numeral');
+var numeral = require("numeral");
 
 export const ProductCard: React.FC<IProduct> = (props) => {
   const [loading, setLoading] = useState(true);
@@ -74,27 +75,35 @@ export const ProductCard: React.FC<IProduct> = (props) => {
             justifyContent="center"
           >
             <Text width="100%" color="red.800" textAlign="center" isTruncated>
-              {numeral(props.finalPrice).format('0,0[.]00')} 
+              {numeral(props.finalPrice).format("0,0[.]00")}
             </Text>
-            
           </Flex>
           <Flex
-            paddingBottom="2rem"
+            paddingBottom="3rem"
             backgroundColor="white"
             justifyContent="center"
-            margin= "auto"
+            margin="auto"
           >
-            <StyledButton
-              marginLeft="auto"
-              size="md"
-              height="30px"
-              width="150px"
-              border="1px"
-              borderColor="red.500"
-              onClick={() => {console.log(props.id);}}
+            <Tooltip
+              hasArrow
+              label="Add To Cart"
+              placement="bottom"
+              bg="green.600"
             >
+              <StyledButton
+                marginLeft="auto"
+                size="md"
+                height="30px"
+                width="150px"
+                border="1px"
+                borderColor="red.500"
+                onClick={() => {
+                  console.log(props.id);
+                }}
+              >
                 Buy it !
-            </StyledButton>
+              </StyledButton>
+            </Tooltip>
           </Flex>
         </PseudoBox>
       </Link>
@@ -106,10 +115,10 @@ const StyledButton = styled(Button)`
   &:hover {
     background-color: #fff;
   }
-`
+`;
 
 const StyledLink = styled(Link)`
   &:hover {
     background-color: #fff;
   }
-`
+`;
