@@ -12,6 +12,7 @@ export const GET_PRODUCT_DETAIL = gql`
       namePath
       imgUrl
       description
+      images
     }
   }
 `;

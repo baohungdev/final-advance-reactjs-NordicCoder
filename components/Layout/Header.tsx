@@ -15,6 +15,7 @@ import { useState } from "react";
 import { FlexContainer } from "./FlexContainer";
 
 import { theme } from "../../theme";
+import styled from "@emotion/styled";
 
 export const Header = () => {
   const [show, setShow] = useState(true);
@@ -39,15 +40,15 @@ export const Header = () => {
           <FlexNavItem flex="1 1 auto">
             <InputGroup flex="0 1 40rem">
               <label htmlFor="product-search-bar" aria-label="search"></label>
-              <Input
+              <StyledInput
                 id="product-search-bar"
                 onBlur={() => setShow(true)}
                 onFocus={() => setShow(false)}
                 placeholder="Search"
-                focusBorderColor="primary.500"
-              ></Input>
+                focusBorderColor="primary.400"
+              ></StyledInput>
               <InputRightElement>
-                <Box as={IoMdSearch} size="2rem" color="primary.500"></Box>
+                <Box as={IoMdSearch} size="2rem" color="#fff"></Box>
               </InputRightElement>
             </InputGroup>
           </FlexNavItem>
@@ -62,3 +63,9 @@ export const Header = () => {
     </>
   );
 };
+
+const StyledInput = styled(Input)`
+  ::placeholder {
+    color: #fff;
+  }
+`

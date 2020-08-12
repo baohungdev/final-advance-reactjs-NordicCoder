@@ -16,10 +16,11 @@ export type IProductDetail = {
   sku: string;
   name: string;
   image: string;
-  images: [string];
+  images: Array<string>;
   price: number;
   finalPrice: number;
   description: string;
   imgUrl: string;
   imgUrlMob: string;
+  promotionPercent: number;
 };

@@ -18,7 +18,6 @@ var numeral = require('numeral');
 
 export const ProductCard: React.FC<IProduct> = (props) => {
   const [loading, setLoading] = useState(true);
-  // console.log(theme.colors.black)
   return (
     <NextLink href="/detail/[id]" as={`/detail/${props.id}`} passHref>
       <Link
@@ -34,8 +33,10 @@ export const ProductCard: React.FC<IProduct> = (props) => {
           display="flex"
           flexWrap="wrap"
           borderWidth="2px"
-          borderColor="blue.300"
+          borderColor="blue.200"
           overflow="hidden"
+          _hover={{ borderColor: "blue.500", bg: "gray.200" }}
+          borderRadius="5px"
         >
           <Box
             backgroundColor="white"
@@ -67,25 +68,33 @@ export const ProductCard: React.FC<IProduct> = (props) => {
           </Flex>
           <Flex
             paddingX="1rem"
-            paddingBottom="2rem"
+            paddingBottom="1rem"
             width="100%"
             backgroundColor="white"
             justifyContent="center"
           >
-            <Text width="100%" color="blue.800" textAlign="center" isTruncated>
+            <Text width="100%" color="red.800" textAlign="center" isTruncated>
               {numeral(props.finalPrice).format('0,0[.]00')} 
             </Text>
+            
+          </Flex>
+          <Flex
+            paddingBottom="2rem"
+            backgroundColor="white"
+            justifyContent="center"
+            margin= "auto"
+          >
             <StyledButton
-              marginLeft="3px"
-              size="xs"
+              marginLeft="auto"
+              size="md"
               height="30px"
-              width="200px"
+              width="150px"
               border="1px"
-              borderColor="blue.300"
-              // variantColor="black"
+              borderColor="red.500"
+              onClick={() => {console.log(props.id);}}
             >
-              Buy It Now
-            </StyledButton>{" "}
+                Buy it !
+            </StyledButton>
           </Flex>
         </PseudoBox>
       </Link>
@@ -96,5 +105,11 @@ export const ProductCard: React.FC<IProduct> = (props) => {
 const StyledButton = styled(Button)`
   &:hover {
     background-color: #fff;
+  }
+`
+
+const StyledLink = styled(Link)`
+  &:hover {
+    background-color: #bbb;
   }
 `

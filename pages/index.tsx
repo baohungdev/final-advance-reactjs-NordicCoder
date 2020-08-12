@@ -10,9 +10,7 @@ import { GET_ALL_PRODUCTS } from "../components/graphql/product/getAllProduct.qu
 import { IProduct } from "../interfaces";
 import { usePagination } from "../hooks/usePagination";
 import { PaginationBar } from "../components/PaginationBar/PaginationBar";
-import { BallBeat } from 'react-pure-loaders';
-import Loading from "../components/Loading/Loading";
-import ReactLoading from 'react-loading'
+
 const Home = () => {
   const { loading, error, data } = useQuery(GET_ALL_PRODUCTS, {
     variables: {
@@ -23,7 +21,7 @@ const Home = () => {
     },
   });
   if (error) return <h1>Error</h1>;
-  if (loading) return <BallBeat/>
+  if (loading) return <h1>Loading...</h1>
 
   const products = data?.getAllProduct?.data;
   if (!products || !products.length) {
@@ -33,7 +31,7 @@ const Home = () => {
   return (
     <Layout>
       <Flex as="section" justifyContent="center" backgroundColor="#F9F9F9">
-        <FlexContainer padding="3rem" flexWrap={"wrap"}>
+        <FlexContainer padding="5rem" flexWrap={"wrap"}>
           <Grid
             width="100%"
             templateColumns="repeat(auto-fill, minmax(12em, 1fr))"
