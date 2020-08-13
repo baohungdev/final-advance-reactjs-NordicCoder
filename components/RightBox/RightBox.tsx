@@ -1,4 +1,6 @@
-import React, { useState, Component, Fragment } from "react";
+import React, { useState, Component, Fragment, useContext } from "react";
+import Zoom from "react-img-zoom";
+
 import {
   Flex,
   Image,
@@ -17,12 +19,17 @@ import { IoIosArrowDropleftCircle, IoMdCart } from "react-icons/io";
 import ReactHtmlParser from "react-html-parser";
 import styled from "@emotion/styled";
 import { withRouter, Router } from "next/router";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { CartContext } from "../../providers/cart/cart.provider";
+
 type IRightBox = {
+  id: number;
   images: string[];
   name: string;
   price: number;
   description: string;
   router: Router;
+  addItem: () => void;
 };
 
 type ImageState = {
@@ -37,12 +44,27 @@ class RightBox extends Component<IRightBox, ImageState> {
   }
 
   render() {
-    const { images, name, description, price } = this.props;
+    const {
+      router,
+      images,
+      name,
+      description,
+      price,
+      id,
+      addItem,
+    } = this.props;
+    console.log(router);
+    const item = {
+      imgUrl: `https://media3.scdn.vn${images[0]}`,
+      name: name,
+      price: price,
+      id: id,
+    };
 
     return (
       <Flex as="section" justifyContent="center">
         <Flex
-          flex="0 22 60rem"
+          flex="0 22 70rem"
           backgroundColor="white"
           justifyContent="center"
           flexWrap="wrap"
@@ -51,12 +73,29 @@ class RightBox extends Component<IRightBox, ImageState> {
         >
           {/* big image */}
           <Flex flex="0 2 25rem" paddingY={["2rem", null, "5rem"]}>
-            <Image
-              borderWidth="2px"
-              borderColor="black.200"
-              borderRadius="5px"
-              src={`https://media3.scdn.vn${this.state.Image}`}
-            />
+            <TransformWrapper
+              defaultScale={1}
+              defaultPositionX={200}
+              defaultPositionY={100}
+            >
+              {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+                <React.Fragment>
+                  <div className="tools">
+                    <button onClick={zoomIn}>+</button>
+                    <button onClick={zoomOut}>-</button>
+                    <button onClick={resetTransform}>x</button>
+                  </div>
+                  <TransformComponent>
+                    <Image
+                      borderWidth="2px"
+                      borderColor="black.200"
+                      borderRadius="5px"
+                      src={`https://media3.scdn.vn${this.state.Image}`}
+                    />
+                  </TransformComponent>
+                </React.Fragment>
+              )}
+            </TransformWrapper>
           </Flex>
           {/* divider */}
           <Flex
@@ -97,32 +136,50 @@ class RightBox extends Component<IRightBox, ImageState> {
 
             <Flex paddingY="1rem" flex="0 1 100%">
               <Divider orientation="vertical" borderColor="#BBB" />
-              <Button variantColor="primary" width="100%" leftIcon={IoMdCart}>
+              <Button
+                variantColor="primary"
+                width="100%"
+                leftIcon={IoMdCart}
+                onClick={() => addItem(item)}
+              >
                 {price}
               </Button>
               <Divider orientation="vertical" borderColor="#BBB" />
-              <Button
-                variantColor="secondary"
-                leftIcon={IoIosArrowDropleftCircle}
-                onClick={() => this.props.router.push("/")}
-              ></Button>
+              <Button variantColor="secondary" onClick={() => router.push("/")}>
+                <IoIosArrowDropleftCircle></IoIosArrowDropleftCircle>
+              </Button>
               <Divider orientation="vertical" borderColor="#BBB" />
             </Flex>
           </Flex>
           <Flex paddingBottom="2rem"></Flex>
-
-          
+          {ReactHtmlParser(description)}
         </Flex>
-        
       </Flex>
     );
   }
 }
 
-export default withRouter(RightBox);
+export { RightBox };
 
 const StyledImage = styled(Image)`
   &:hover {
     cursor: pointer;
   }
 `;
+const Bo1x = ({ images, name, description, price, id, router }) => {
+  const { addItem } = useContext(CartContext);
+
+  return (
+    <RightBox
+      router={router}
+      images={images}
+      name={name}
+      description={description}
+      price={price}
+      id={id}
+      addItem={addItem}
+    ></RightBox>
+  );
+};
+
+export default withRouter(Bo1x);

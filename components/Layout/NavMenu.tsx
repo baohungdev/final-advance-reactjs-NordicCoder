@@ -17,6 +17,10 @@ import { FcHome } from "react-icons/fc";
 import { theme } from "../../theme";
 import { useToast } from "@chakra-ui/core";
 import { useDisclosure } from "@chakra-ui/core";
+import CartIcon from "../cart/CartIcon";
+import { CartContext } from "../../providers/cart/cart.provider";
+import { useContext } from "react";
+import CartDropdown from "../cart/CartDropdown";
 
 const NavLinkButton: React.FC<ButtonProps> = (props) => (
   <Button variant="link" color="white" {...props}></Button>
@@ -25,6 +29,7 @@ const NavLinkButton: React.FC<ButtonProps> = (props) => (
 export const NavMenu: React.FC<FlexProps> = (props) => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { hidden } = useContext(CartContext);
 
   return (
     <Flex
@@ -48,11 +53,15 @@ export const NavMenu: React.FC<FlexProps> = (props) => {
             <DrawerHeader borderBottomWidth="1px">Apple</DrawerHeader>
             <DrawerBody>
               <NextLink href={`/search?q=Iphone-11`}>Iphone 11</NextLink>
-              <br/>
-              <NextLink href={`/search?q=Iphone-11-pro`}>Iphone 11 Pro</NextLink>
-              <br/>
-              <NextLink href={`/search?q=Iphone-11-pro-max`}>Iphone 11 Pro Max</NextLink>
-              <br/>
+              <br />
+              <NextLink href={`/search?q=Iphone-11-pro`}>
+                Iphone 11 Pro
+              </NextLink>
+              <br />
+              <NextLink href={`/search?q=Iphone-11-pro-max`}>
+                Iphone 11 Pro Max
+              </NextLink>
+              <br />
               <p>Iphone 11 Pro Max</p>
             </DrawerBody>
             <DrawerHeader borderBottomWidth="1px">Samsung</DrawerHeader>
@@ -67,7 +76,8 @@ export const NavMenu: React.FC<FlexProps> = (props) => {
       </FlexNavItem>
 
       <FlexNavItem>
-        <NavLinkButton leftIcon={IoMdCart}>99k</NavLinkButton>
+        <CartIcon />
+        {hidden ? null : <CartDropdown />}
       </FlexNavItem>
 
       <FlexNavItem>

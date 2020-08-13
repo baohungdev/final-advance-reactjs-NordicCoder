@@ -19,10 +19,20 @@ import { CartContext } from "../../providers/cart/cart.provider";
 var numeral = require("numeral");
 
 export const ProductCard: React.FC<IProduct> = (props) => {
-  const { addItem } = useContext(CartContext);
   const [Loading, setLoading] = useState(true);
+  const { addItem, cartItems, cartItemsCount, cartTotal } = useContext(
+    CartContext
+  );
+
+  const item = {
+    id: props.id,
+    name: props.name,
+    price: props.price,
+    imgUrl: props.imgUrl,
+  };
+
   return (
-    <NextLink href="/detail/[id]" as={`/detail/${props.id}`} passHref>
+    <div>
       <Link
         _hover={{
           textDecoration: "none",
@@ -47,15 +57,12 @@ export const ProductCard: React.FC<IProduct> = (props) => {
             borderBottomWidth="1px"
             borderColor="#BBB"
           >
-            <Skeleton isLoaded={!Loading}>
-              <Image
-                width="100%"
-                height="13rem"
-                objectFit="contain"
-                src={props.imgUrl}
-                onLoad={() => setLoading(false)}
-              />
-            </Skeleton>
+            <Image
+              width="100%"
+              height="13rem"
+              objectFit="contain"
+              src={props.imgUrl}
+            />
           </Box>
 
           <Flex
@@ -102,10 +109,7 @@ export const ProductCard: React.FC<IProduct> = (props) => {
                 borderColor="red.500"
                 variantColor="teal"
                 variant="outline"
-                onClick={() => {
-                  console.log(props.id);
-                  addItem(props.id);
-                }}
+                onClick={() => addItem(item)}
               >
                 Buy it !
               </StyledButton>
@@ -113,7 +117,7 @@ export const ProductCard: React.FC<IProduct> = (props) => {
           </Flex>
         </PseudoBox>
       </Link>
-    </NextLink>
+    </div>
   );
 };
 

@@ -4,10 +4,10 @@ import { useRouter } from "next/router";
 import { GET_PRODUCT_DETAIL } from "../../components/graphql/product/getProductDetail";
 import withApollo from "../../utils/withApollo";
 import { IProductDetail } from "../../interfaces";
-import { Flex, Text } from "@chakra-ui/core";
+import { Flex, Text, useToast } from "@chakra-ui/core";
 import { Layout } from "../../components/Layout";
 
-import RightBox from "../../components/RightBox/RightBox";
+import Bo1x from "../../components/RightBox/RightBox";
 import { PongSpinner } from "react-spinners-kit";
 
 const ProductDetail: React.FC<{}> = () => {
@@ -39,7 +39,8 @@ const ProductDetail: React.FC<{}> = () => {
   return (
     <Layout>
       <Flex as="section" justifyContent="center">
-        <RightBox
+        <Bo1x
+          id={productDetail.id}
           images={images}
           name={name}
           description={description}

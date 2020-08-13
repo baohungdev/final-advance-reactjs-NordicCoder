@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { Flex, IconButton, Text } from "@chakra-ui/core/dist";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import React from "react";
+import GoogleMap from "../Map/Map";
 
 export const PaginationBar: React.FC<{ page: number; maxPage: number }> = (
   props

@@ -2,7 +2,8 @@ import React from "react";
 import NextApp from "next/app";
 import { ThemeProvider, CSSReset, ColorModeProvider } from "@chakra-ui/core";
 import { theme } from "../theme/theme";
-import CartProvider from '../providers/cart/cart.provider'
+import GlobalProvider from "../providers/cart/cart.provider";
+import CartProvider from "../providers/cart/cart.provider";
 class App extends NextApp {
   render() {
     const { Component } = this.props;

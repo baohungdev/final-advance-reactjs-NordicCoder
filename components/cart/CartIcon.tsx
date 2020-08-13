@@ -1,0 +1,40 @@
+import React, { useContext } from "react";
+
+import { CartContext } from "../../providers/cart/cart.provider";
+
+import { IoMdAlbums, IoMdCart } from "react-icons/io";
+import styled from "@emotion/styled";
+import { Button } from "@chakra-ui/core";
+
+const NavLinkButton: React.FC<ButtonProps> = (props) => (
+  <Button variant="link" color="white" {...props}></Button>
+);
+
+const CartIcon = () => {
+  const { toggleHidden, cartItemsCount } = useContext(CartContext);
+
+  return (
+    <NavLinkButton leftIcon={IoMdCart} onClick={toggleHidden}>
+      <ItemsCount>{cartItemsCount}</ItemsCount>
+    </NavLinkButton>
+  );
+};
+
+export default CartIcon;
+
+const CartIconContainer = styled.div`
+  width: 45px;
+  height: 45px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`;
+
+const ItemsCount = styled.span`
+  position: absolute;
+  font-size: 10px;
+  font-weight: bold;
+  bottom: 12px;
+`;
