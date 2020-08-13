@@ -5,8 +5,9 @@ import { CartContext } from "../../providers/cart/cart.provider";
 
 import { Button } from "@chakra-ui/core";
 import styled from "@emotion/styled";
+import { withRouter } from "next/router";
 
-const CartDropdown = () => {
+const CartDropdown = ({ router }) => {
   const { cartItems, toggleHidden } = useContext(CartContext);
   console.log(cartItems);
   return (
@@ -24,6 +25,7 @@ const CartDropdown = () => {
         marginTop="auto"
         onClick={() => {
           toggleHidden();
+          router.push("/checkout");
         }}
       >
         GO TO CHECKOUT
@@ -32,7 +34,7 @@ const CartDropdown = () => {
   );
 };
 
-export default CartDropdown;
+export default withRouter(CartDropdown);
 
 const CartDropdownContainer = styled.div`
   position: absolute;

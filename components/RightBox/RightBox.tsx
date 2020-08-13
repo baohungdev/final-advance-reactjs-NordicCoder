@@ -1,20 +1,7 @@
 import React, { useState, Component, Fragment, useContext } from "react";
 import Zoom from "react-img-zoom";
 
-import {
-  Flex,
-  Image,
-  Divider,
-  Text,
-  Button,
-  Accordion,
-  AccordionItem,
-  AccordionHeader,
-  Box,
-  AccordionIcon,
-  AccordionPanel,
-  Icon,
-} from "@chakra-ui/core";
+import { Flex, Image, Divider, Text, Button } from "@chakra-ui/core";
 import { IoIosArrowDropleftCircle, IoMdCart } from "react-icons/io";
 import ReactHtmlParser from "react-html-parser";
 import styled from "@emotion/styled";
