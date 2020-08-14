@@ -36,7 +36,7 @@ const ProductCard: React.FC<IProduct> = (props) => {
       <Link
         _hover={{
           textDecoration: "none",
-          color: "secondary.500",
+          color: "secondary.100",
         }}
         _focus={{
           boxShadow: "none",
@@ -69,7 +69,7 @@ const ProductCard: React.FC<IProduct> = (props) => {
 
           <Flex
             paddingX="1rem"
-            paddingY="2rem"
+            paddingY="1rem"
             width="100%"
             backgroundColor="white"
             justifyContent="center"
@@ -79,8 +79,7 @@ const ProductCard: React.FC<IProduct> = (props) => {
             </Text>
           </Flex>
           <Flex
-            paddingX="1rem"
-            paddingBottom="1rem"
+            paddingBottom="6px"
             width="100%"
             backgroundColor="white"
             justifyContent="center"
@@ -90,10 +89,11 @@ const ProductCard: React.FC<IProduct> = (props) => {
             </Text>
           </Flex>
           <Flex
-            paddingBottom="3rem"
-            backgroundColor="white"
-            justifyContent="center"
+            paddingBottom="1rem"
+            backgroundColor="WHITE"
+            justify="center"
             margin="auto"
+            width="100%"
           >
             <Tooltip
               aria-label="hung"
@@ -103,10 +103,10 @@ const ProductCard: React.FC<IProduct> = (props) => {
               bg="green.600"
             >
               <StyledButton
-                marginLeft="auto"
+                margin="auto"
                 size="md"
                 height="30px"
-                width="150px"
+                width="100px"
                 border="1px"
                 borderColor="red.500"
                 variantColor="teal"

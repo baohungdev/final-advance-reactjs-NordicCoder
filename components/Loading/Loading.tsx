@@ -5,9 +5,9 @@ import { PongSpinner } from "react-spinners-kit";
 
 const Loading: React.FC<{}> = () => (
   <Layout>
-    <Flex justifyItems="center">
+    <Flex justify="center">
       <Text>
-        <PongSpinner size={200} color="#686769" loading={true}></PongSpinner>
+        <PongSpinner size={300} color="#686769" loading={true}></PongSpinner>
       </Text>
     </Flex>
   </Layout>

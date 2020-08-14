@@ -2,7 +2,11 @@ import React, { useState, Component, Fragment, useContext } from "react";
 import Zoom from "react-img-zoom";
 
 import { Flex, Image, Divider, Text, Button } from "@chakra-ui/core";
-import { IoIosArrowDropleftCircle, IoMdCart } from "react-icons/io";
+import {
+  IoIosArrowDropleftCircle,
+  IoMdCart,
+  IoMdArrowBack,
+} from "react-icons/io";
 import ReactHtmlParser from "react-html-parser";
 import styled from "@emotion/styled";
 import { withRouter, Router } from "next/router";
@@ -26,7 +30,7 @@ class RightBox extends Component<IRightBox, ImageState> {
   constructor(props) {
     super(props);
     this.state = {
-      Image: this.props.images[2],
+      Image: this.props.images[0],
     };
   }
 
@@ -60,29 +64,12 @@ class RightBox extends Component<IRightBox, ImageState> {
         >
           {/* big image */}
           <Flex flex="0 2 25rem" paddingY={["2rem", null, "5rem"]}>
-            <TransformWrapper
-              defaultScale={1}
-              defaultPositionX={200}
-              defaultPositionY={100}
-            >
-              {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
-                <React.Fragment>
-                  <div className="tools">
-                    <button onClick={zoomIn}>+</button>
-                    <button onClick={zoomOut}>-</button>
-                    <button onClick={resetTransform}>x</button>
-                  </div>
-                  <TransformComponent>
-                    <Image
-                      borderWidth="2px"
-                      borderColor="black.200"
-                      borderRadius="5px"
-                      src={`https://media3.scdn.vn${this.state.Image}`}
-                    />
-                  </TransformComponent>
-                </React.Fragment>
-              )}
-            </TransformWrapper>
+            <Image
+              borderWidth="2px"
+              borderColor="black.200"
+              borderRadius="5px"
+              src={`https://media3.scdn.vn${this.state.Image}`}
+            />
           </Flex>
           {/* divider */}
           <Flex
@@ -132,8 +119,12 @@ class RightBox extends Component<IRightBox, ImageState> {
                 {price}
               </Button>
               <Divider orientation="vertical" borderColor="#BBB" />
-              <Button variantColor="secondary" onClick={() => router.push("/")}>
-                <IoIosArrowDropleftCircle></IoIosArrowDropleftCircle>
+              <Button
+                size="md"
+                variantColor="secondary"
+                onClick={() => router.push("/")}
+              >
+                <IoMdArrowBack></IoMdArrowBack>
               </Button>
               <Divider orientation="vertical" borderColor="#BBB" />
             </Flex>

@@ -9,6 +9,7 @@ import { Layout } from "../../components/Layout";
 
 import Bo1x from "../../components/RightBox/RightBox";
 import { PongSpinner } from "react-spinners-kit";
+import Loading from "../../components/Loading/Loading";
 
 const ProductDetail: React.FC<{}> = () => {
   const router = useRouter();
@@ -23,14 +24,7 @@ const ProductDetail: React.FC<{}> = () => {
   });
 
   if (error) return <h1>Error</h1>;
-  if (loading)
-    return (
-      <Layout>
-        <Text>
-          <PongSpinner size={100} color="#686769" loading={true}></PongSpinner>
-        </Text>
-      </Layout>
-    );
+  if (loading) return <Loading></Loading>;
 
   const productDetail: IProductDetail = data?.getProductDetail;
 

@@ -18,8 +18,7 @@ import {
 } from "@chakra-ui/core";
 import { IoMdCart } from "react-icons/io";
 const CartDropdown = ({ router }) => {
-  const { cartItems, toggleHidden } = useContext(CartContext);
-  console.log(cartItems);
+  const { cartItems } = useContext(CartContext);
   return (
     <StyledPoper usePortal>
       <PopoverTrigger>

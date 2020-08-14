@@ -4,7 +4,7 @@ import { Footer } from "./Footer";
 
 export const Layout: React.FC = ({ children }) => {
   return (
-    <Box>
+    <Box fontFamily="Open Sans Condensed, sans-serif">
       <Header></Header>
       {children}
       <Footer></Footer>

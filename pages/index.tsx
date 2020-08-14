@@ -18,7 +18,7 @@ const Home = () => {
     variables: {
       input: {
         page: 1,
-        keyword: "Apple Iphone 11 Pro Max",
+        keyword: "Iphone 11",
       },
     },
   });

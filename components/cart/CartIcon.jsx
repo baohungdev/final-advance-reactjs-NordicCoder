@@ -4,18 +4,7 @@ import { CartContext } from "../../providers/cart/cart.provider";
 
 import { IoMdAlbums, IoMdCart } from "react-icons/io";
 import styled from "@emotion/styled";
-import {
-  Button,
-  IButton,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverArrow,
-  PopoverHeader,
-  PopoverCloseButton,
-  PopoverBody,
-  PopoverFooter,
-} from "@chakra-ui/core";
+import { Button } from "@chakra-ui/core";
 
 const NavLinkButton = (props) => (
   <Button variant="link" color="white" {...props}></Button>

@@ -66,13 +66,24 @@ const NavMenu: React.FC<FlexProps> = (props) => {
                 Iphone 11 Pro Max
               </NextLink>
               <br />
-              <p>Iphone 11 Pro Max</p>
+              <NextLink href={`/search?q=op-lung-iphone`}>
+                Ốp lưng Iphone
+              </NextLink>
             </DrawerBody>
             <DrawerHeader borderBottomWidth="1px">Samsung</DrawerHeader>
             <DrawerBody>
-              <p>Coming soon...</p>
-              <p>Coming soon...</p>
-              <p>Coming soon...</p>
+              <NextLink href={`/search?q=samsung-galaxy-s20`}>
+                Samsung Galaxy S20
+              </NextLink>
+              <br />
+              <NextLink href={`/search?q=samsung-galaxy-s20-plus`}>
+                Samsung Galaxy S20+
+              </NextLink>
+              <br />
+              <NextLink href={`/search?q=samsung-galaxy-note-20-ultra-5g`}>
+                Samsung Galaxy Note 20 Ultra 5G
+              </NextLink>
+              <br />
               <p>Coming soon...</p>
             </DrawerBody>
           </DrawerContent>

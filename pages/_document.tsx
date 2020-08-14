@@ -3,18 +3,16 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="zh-Hans">
+      <Html lang="en">
         <Head>
           <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Noto+Serif+SC:wght@500&display=swap"
-            rel="preload"
-            as="style"
+            href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+            rel="stylesheet"
           />
         </Head>
         <body>
           <Main />
           <NextScript />
-          
         </body>
       </Html>
     );
