@@ -3,8 +3,7 @@ import styled from "@emotion/styled";
 import { Text } from "@chakra-ui/core";
 import { withRouter } from "next/router";
 
-const CartItem = ({ item, router }) => {
-  console.log(item);
+const CartItem = ({ item }) => {
   return (
     <CartItemContainer>
       <Image src={item.imgUrl} alt="item" />

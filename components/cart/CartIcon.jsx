@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { CartContext } from "../../providers/cart/cart.provider";
 
-import { IoMdAlbums, IoMdCart } from "react-icons/io";
+import { IoMdCart } from "react-icons/io";
 import styled from "@emotion/styled";
 import { Button } from "@chakra-ui/core";
 

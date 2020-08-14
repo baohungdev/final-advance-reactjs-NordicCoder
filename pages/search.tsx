@@ -1,6 +1,6 @@
 import { Layout } from "../components/Layout";
 import React from "react";
-import { Flex, Text } from "@chakra-ui/core";
+import { Flex } from "@chakra-ui/core";
 import { Grid } from "@chakra-ui/core/dist";
 import { FlexContainer } from "../components/Layout/FlexContainer";
 import { useQuery } from "@apollo/react-hooks";
@@ -8,7 +8,6 @@ import withApollo from "../utils/withApollo";
 import { GET_ALL_PRODUCTS } from "../components/graphql/product/getAllProduct.query";
 import { usePagination } from "../hooks/usePagination";
 import { PaginationBar } from "../components/PaginationBar/PaginationBar";
-import { PongSpinner } from "react-spinners-kit";
 
 import { useRouter } from "next/router";
 import Loading from "../components/Loading/Loading";
@@ -48,12 +47,6 @@ const Home = () => {
       <PaginationBar page={page} maxPage={maxPage} />
     </Layout>
   );
-};
-
-export const getInitialProps = async ({ query: queryStrings }) => {
-  return {
-    props: { name: queryStrings },
-  };
 };
 
 export default withApollo({ ssr: true })(Home);

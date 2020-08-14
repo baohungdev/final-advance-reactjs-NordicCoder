@@ -8,7 +8,6 @@ import {
 import NextLink from "next/link";
 import Head from "next/head";
 import { IoMdSearch } from "react-icons/io";
-import { FcHome } from "react-icons/fc";
 import { NavMenu } from "./NavMenu";
 import { FlexNavItem } from "./FlexNavItem";
 import { useState } from "react";

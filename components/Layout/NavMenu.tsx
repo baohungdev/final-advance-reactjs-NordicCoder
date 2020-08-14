@@ -10,16 +10,11 @@ import {
   DrawerBody,
 } from "@chakra-ui/core";
 import NextLink from "next/link";
-
 import { FlexNavItem } from "./FlexNavItem";
-import { IoMdList, IoMdCart, IoMdPerson, IoMdHome } from "react-icons/io";
-import { FcHome } from "react-icons/fc";
+import { IoMdList, IoMdPerson, IoMdHome } from "react-icons/io";
 import { theme } from "../../theme";
 import { useToast } from "@chakra-ui/core";
 import { useDisclosure } from "@chakra-ui/core";
-import CartIcon from "../cart/CartIcon";
-import { CartContext } from "../../providers/cart/cart.provider";
-import { useContext } from "react";
 import CartDropdown from "../cart/CartDropdown";
 
 export const NavLinkButton: React.FC<ButtonProps> = (props) => (
@@ -29,7 +24,6 @@ export const NavLinkButton: React.FC<ButtonProps> = (props) => (
 const NavMenu: React.FC<FlexProps> = (props) => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { hidden } = useContext(CartContext);
 
   return (
     <Flex

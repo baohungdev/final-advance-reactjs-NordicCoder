@@ -5,12 +5,8 @@ export const GET_ALL_PRODUCTS = gql`
     getAllProduct(input: $input) {
       data {
         id
-        sku
         name
         price
-        finalPrice
-        promotionPercent
-        namePath
         imgUrl
       }
     }

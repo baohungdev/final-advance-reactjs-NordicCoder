@@ -7,7 +7,7 @@ import { withRouter } from "next/router";
 import StripeCheckoutButton from "../components/checkout/stripe-button";
 import { Layout } from "../components/Layout";
 
-const CheckoutPage = ({ router }) => {
+const CheckoutPage = () => {
   const { cartItems, cartTotal } = useContext(CartContext);
 
   return (

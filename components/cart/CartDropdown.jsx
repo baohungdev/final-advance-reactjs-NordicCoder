@@ -26,13 +26,13 @@ const CartDropdown = ({ router }) => {
           Cart
         </Button>
       </PopoverTrigger>
-      <PopoverContent zIndex={2}>
+      <StyledPopoverContent zIndex={2}>
         <PopoverArrow />
         <PopoverHeader fontWeight="500" margin="auto">
           Hi Buddy!
         </PopoverHeader>
         <PopoverCloseButton />
-        <PopoverBody>
+        <PopoverBody justify="center">
           {cartItems.length ? (
             cartItems.map((cartItem) => (
               <CartItem key={cartItem.id} item={cartItem} />
@@ -51,7 +51,7 @@ const CartDropdown = ({ router }) => {
             Go to Checkout
           </Button>
         </PopoverFooter>
-      </PopoverContent>
+      </StyledPopoverContent>
     </StyledPoper>
   );
 };
@@ -107,3 +107,8 @@ const CartItems = styled.div`
 `;
 
 const StyledPoper = styled(Popover)``;
+
+const StyledPopoverContent = styled(PopoverContent)`
+  height: 400px;
+  overflow: scroll;
+`;

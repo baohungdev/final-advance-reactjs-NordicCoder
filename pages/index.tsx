@@ -1,6 +1,6 @@
 import { Layout } from "../components/Layout";
 import React from "react";
-import { Flex, Text } from "@chakra-ui/core";
+import { Flex } from "@chakra-ui/core";
 import { Grid } from "@chakra-ui/core/dist";
 import { FlexContainer } from "../components/Layout/FlexContainer";
 import { useQuery } from "@apollo/react-hooks";
@@ -9,7 +9,6 @@ import { GET_ALL_PRODUCTS } from "../components/graphql/product/getAllProduct.qu
 
 import { usePagination } from "../hooks/usePagination";
 import { PaginationBar } from "../components/PaginationBar/PaginationBar";
-import { PongSpinner } from "react-spinners-kit";
 import Loading from "../components/Loading/Loading";
 import GoogleMap from "../components/Map/Map";
 

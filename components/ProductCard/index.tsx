@@ -19,10 +19,7 @@ import { CartContext } from "../../providers/cart/cart.provider";
 var numeral = require("numeral");
 
 const ProductCard: React.FC<IProduct> = (props) => {
-  const [Loading, setLoading] = useState(true);
-  const { addItem, cartItems, cartItemsCount, cartTotal } = useContext(
-    CartContext
-  );
+  const { addItem } = useContext(CartContext);
 
   const item = {
     id: props.id,
@@ -68,8 +65,8 @@ const ProductCard: React.FC<IProduct> = (props) => {
           </Box>
 
           <Flex
-            paddingX="1rem"
-            paddingY="1rem"
+            paddingX="10px"
+            paddingY="10px"
             width="100%"
             backgroundColor="white"
             justifyContent="center"
@@ -79,13 +76,13 @@ const ProductCard: React.FC<IProduct> = (props) => {
             </Text>
           </Flex>
           <Flex
-            paddingBottom="6px"
+            paddingBottom="10px"
             width="100%"
             backgroundColor="white"
             justifyContent="center"
           >
             <Text width="100%" color="red.800" textAlign="center" isTruncated>
-              {numeral(props.finalPrice).format("0,0[.]00")}
+              {numeral(props.price).format("0,0[.]00")}
             </Text>
           </Flex>
           <Flex
@@ -124,12 +121,6 @@ const ProductCard: React.FC<IProduct> = (props) => {
 };
 
 const StyledButton = styled(Button)`
-  &:hover {
-    background-color: #fff;
-  }
-`;
-
-const StyledLink = styled(Link)`
   &:hover {
     background-color: #fff;
   }

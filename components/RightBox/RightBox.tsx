@@ -1,16 +1,9 @@
 import React, { useState, Component, Fragment, useContext } from "react";
-import Zoom from "react-img-zoom";
-
 import { Flex, Image, Divider, Text, Button } from "@chakra-ui/core";
-import {
-  IoIosArrowDropleftCircle,
-  IoMdCart,
-  IoMdArrowBack,
-} from "react-icons/io";
+import { IoMdCart, IoMdArrowBack } from "react-icons/io";
 import ReactHtmlParser from "react-html-parser";
 import styled from "@emotion/styled";
 import { withRouter, Router } from "next/router";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { CartContext } from "../../providers/cart/cart.provider";
 
 type IRightBox = {
