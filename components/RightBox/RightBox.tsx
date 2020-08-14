@@ -16,7 +16,7 @@ type IRightBox = {
   price: number;
   description: string;
   router: Router;
-  addItem: () => void;
+  addItem: (item) => void;
 };
 
 type ImageState = {

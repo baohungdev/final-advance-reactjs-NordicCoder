@@ -4,9 +4,9 @@ import { CartContext } from "../../providers/cart/cart.provider";
 
 import { IoMdAlbums, IoMdCart } from "react-icons/io";
 import styled from "@emotion/styled";
-import { Button } from "@chakra-ui/core";
+import { Button, IButton } from "@chakra-ui/core";
 
-const NavLinkButton: React.FC<ButtonProps> = (props) => (
+const NavLinkButton = (props) => (
   <Button variant="link" color="white" {...props}></Button>
 );
 

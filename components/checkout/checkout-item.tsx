@@ -22,10 +22,7 @@ const CheckoutItem = ({ cartItem }) => {
         <StyledArrow onClick={() => addItem(cartItem)}>&#10095;</StyledArrow>
       </StyledQuantity>
       <StyledPrice>{price}</StyledPrice>
-      <Button
-        className="remove-button"
-        onClick={() => clearItemFromCart(cartItem)}
-      >
+      <Button className="remove-button" onClick={() => clearItemFromCart()}>
         &#10005;
       </Button>
     </CheckoutItemContainer>
