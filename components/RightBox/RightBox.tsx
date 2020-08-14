@@ -65,6 +65,7 @@ class RightBox extends Component<IRightBox, ImageState> {
           {/* big image */}
           <Flex flex="0 2 25rem" paddingY={["2rem", null, "5rem"]}>
             <Image
+              maxHeight="400px"
               borderWidth="2px"
               borderColor="black.200"
               borderRadius="5px"
