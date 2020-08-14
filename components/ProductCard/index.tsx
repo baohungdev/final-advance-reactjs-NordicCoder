@@ -18,7 +18,7 @@ import styled from "@emotion/styled";
 import { CartContext } from "../../providers/cart/cart.provider";
 var numeral = require("numeral");
 
-export const ProductCard: React.FC<IProduct> = (props) => {
+const ProductCard: React.FC<IProduct> = (props) => {
   const [Loading, setLoading] = useState(true);
   const { addItem, cartItems, cartItemsCount, cartTotal } = useContext(
     CartContext
@@ -57,12 +57,14 @@ export const ProductCard: React.FC<IProduct> = (props) => {
             borderBottomWidth="1px"
             borderColor="#BBB"
           >
-            <Image
-              width="100%"
-              height="13rem"
-              objectFit="contain"
-              src={props.imgUrl}
-            />
+            <NextLink href={`/detail/${props.id}`}>
+              <Image
+                width="100%"
+                height="13rem"
+                objectFit="contain"
+                src={props.imgUrl}
+              />
+            </NextLink>
           </Box>
 
           <Flex
@@ -132,3 +134,5 @@ const StyledLink = styled(Link)`
     background-color: #fff;
   }
 `;
+
+export default ProductCard;

@@ -4,7 +4,18 @@ import { CartContext } from "../../providers/cart/cart.provider";
 
 import { IoMdAlbums, IoMdCart } from "react-icons/io";
 import styled from "@emotion/styled";
-import { Button, IButton } from "@chakra-ui/core";
+import {
+  Button,
+  IButton,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  PopoverHeader,
+  PopoverCloseButton,
+  PopoverBody,
+  PopoverFooter,
+} from "@chakra-ui/core";
 
 const NavLinkButton = (props) => (
   <Button variant="link" color="white" {...props}></Button>
@@ -33,8 +44,7 @@ const CartIconContainer = styled.div`
 `;
 
 const ItemsCount = styled.span`
-  position: absolute;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: bold;
   bottom: 12px;
 `;

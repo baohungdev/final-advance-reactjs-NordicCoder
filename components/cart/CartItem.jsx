@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Text } from "@chakra-ui/core";
+import { withRouter } from "next/router";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, router }) => {
   console.log(item);
   return (
     <CartItemContainer>
@@ -17,13 +18,14 @@ const CartItem = ({ item }) => {
   );
 };
 
-export default CartItem;
+export default withRouter(CartItem);
 
 const CartItemContainer = styled.div`
   width: 100%;
   display: flex;
   height: 100px;
   margin-bottom: 15px;
+  margin-top: 10px;
 `;
 
 const Image = styled.img`
@@ -37,8 +39,12 @@ const CartItemDetails = styled.div`
   align-items: flex-start;
   justify-content: center;
   padding: 10px 20px;
+  font-weight: 500;
 `;
 
-const Name = styled(Text)`
-  font-size: 16px;
+const Name = styled.a`
+  font-size: 15px;
+  &: hover {
+    text-decoration: underline;
+  }
 `;

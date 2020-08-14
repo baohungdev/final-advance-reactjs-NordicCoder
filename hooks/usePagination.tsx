@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { ProductCard } from "../components/ProductCard";
+import ProductCard from "../components/ProductCard";
 import { IProduct } from "../interfaces";
 
 export const usePagination = (

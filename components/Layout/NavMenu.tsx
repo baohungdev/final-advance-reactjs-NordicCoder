@@ -22,11 +22,11 @@ import { CartContext } from "../../providers/cart/cart.provider";
 import { useContext } from "react";
 import CartDropdown from "../cart/CartDropdown";
 
-const NavLinkButton: React.FC<ButtonProps> = (props) => (
+export const NavLinkButton: React.FC<ButtonProps> = (props) => (
   <Button variant="link" color="white" {...props}></Button>
 );
 
-export const NavMenu: React.FC<FlexProps> = (props) => {
+const NavMenu: React.FC<FlexProps> = (props) => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { hidden } = useContext(CartContext);
@@ -40,11 +40,15 @@ export const NavMenu: React.FC<FlexProps> = (props) => {
       justifyContent="space-around"
     >
       <FlexNavItem display={["block", "block", "none"]}>
-        <NavLinkButton leftIcon={IoMdHome}>Home</NavLinkButton>
+        <NextLink href={`/`}>
+          <NavLinkButton size="lg" leftIcon={IoMdHome}>
+            Home
+          </NavLinkButton>
+        </NextLink>
       </FlexNavItem>
 
       <FlexNavItem>
-        <NavLinkButton leftIcon={IoMdList} onClick={onOpen}>
+        <NavLinkButton size="lg" leftIcon={IoMdList} onClick={onOpen}>
           List
         </NavLinkButton>
         <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
@@ -76,12 +80,12 @@ export const NavMenu: React.FC<FlexProps> = (props) => {
       </FlexNavItem>
 
       <FlexNavItem>
-        <CartIcon />
-        {hidden ? null : <CartDropdown />}
+        <CartDropdown />
       </FlexNavItem>
 
       <FlexNavItem>
         <NavLinkButton
+          size="lg"
           leftIcon={IoMdPerson}
           onClick={() =>
             toast({
@@ -99,3 +103,5 @@ export const NavMenu: React.FC<FlexProps> = (props) => {
     </Flex>
   );
 };
+
+export { NavMenu };

@@ -29,12 +29,14 @@ export const Header = () => {
       >
         <FlexContainer>
           <FlexNavItem display={[show ? "Flex" : "none", null, "Flex"]}>
-            <Box width="10rem" flex="0 0 auto">
-              <img
-                src="https://salt.tikicdn.com/ts/banner/33/ba/89/54c02d2475983f93a024c0cd13f238e4.png"
-                alt=""
-              />
-            </Box>
+            <NextLink href="/">
+              <Box width="10rem" flex="0 0 auto">
+                <StyledImage
+                  src="https://salt.tikicdn.com/ts/banner/33/ba/89/54c02d2475983f93a024c0cd13f238e4.png"
+                  alt=""
+                />
+              </Box>
+            </NextLink>
           </FlexNavItem>
 
           <FlexNavItem flex="1 1 auto">
@@ -47,9 +49,9 @@ export const Header = () => {
                 placeholder="Search"
                 focusBorderColor="primary.400"
                 value={value}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setValue(e.currentTarget.value);
-              }}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setValue(e.currentTarget.value);
+                }}
               ></StyledInput>
               <InputRightElement>
                 <NextLink href={`/search?q=${value}`}>
@@ -73,5 +75,11 @@ export const Header = () => {
 const StyledInput = styled(Input)`
   ::placeholder {
     color: #fff;
+  }
+`;
+
+const StyledImage = styled.img`
+  &:hover {
+    cursor: pointer;
   }
 `;
