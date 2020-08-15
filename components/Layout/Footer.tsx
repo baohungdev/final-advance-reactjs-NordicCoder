@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
           </Text>
           {/* prettier-ignore */}
           <Text color="white" width="full">
-            github: <UnderlineLink href="https://github.com/baohungdev">baohungdev</UnderlineLink>
+            Github: <UnderlineLink href="https://github.com/baohungdev/final-advance-reactjs-NordicCoder">baohungdev/final-advance-reactjs-NordicCoder</UnderlineLink>
             <br/>
             Made with ❤️
           </Text>
