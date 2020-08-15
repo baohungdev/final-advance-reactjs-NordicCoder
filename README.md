@@ -8,7 +8,7 @@
 </div>
 <p align="center">This is my graduation app with react by using ChakraUI.</p>
 
-![Home Page](/pages/index.tsx)
+![Home Page](/public/homepage.png)
 
 ## What this App does?
 
