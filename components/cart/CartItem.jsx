@@ -1,14 +1,17 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Text } from "@chakra-ui/core";
+import { Text, Divider } from "@chakra-ui/core";
 import { withRouter } from "next/router";
 
 const CartItem = ({ item }) => {
   return (
     <CartItemContainer>
+      <Divider />
       <Image src={item.imgUrl} alt="item" />
       <CartItemDetails>
-        <Name>{item.name}</Name>
+        <Name>
+          {item.name.slice(0, 20) + (item.name.length > 20 ? "..." : "")}
+        </Name>
         <span>
           {item.quantity} x ${item.price}
         </span>
@@ -28,7 +31,7 @@ const CartItemContainer = styled.div`
 `;
 
 const Image = styled.img`
-  width: 20%;
+  width: 30%;
 `;
 
 const CartItemDetails = styled.div`

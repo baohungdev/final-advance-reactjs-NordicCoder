@@ -1,30 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h3 align="center">Reponsive Phone Store</h3>
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+[![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/hung-duong-7382741a7/)
+[![Gmail](https://img.shields.io/badge/-Gmail-c14438?style=flat&logo=Gmail&logoColor=white)](mailto:baohungdev@icloud.com)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+</div>
+<p align="center">This is my graduation app with react by using ChakraUI.</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Home Page](/pages/index.tsx)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## What this App does?
 
-## Learn More
+- By this app, you will be able to:
 
-To learn more about Next.js, take a look at the following resources:
+  - Shopping and checkout with Stripe.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Built with
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- NextJs(SSR)
+- React (Context)
+- Chakra-UI
+- Styled-components
+- Apollo Client
+- GraphQL
+- Typescript
 
-## Deploy on Vercel
+## Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Clone the repository
+- Use `cd <repository-path>`
+- Run `yarn` or `npm i`
+- Run `yarn dev` or `npm run dev`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Author
+
+Duong Bao Hung
+
+- Github: [@baohungdev](https://github.com/baohungdev)
+
+- LinkedIn: [Duong Bao Hung](<[www.linkedin.com/in/hung-duong-7382741a7/](https://www.linkedin.com/in/hung-duong-7382741a7/)>)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome! Start by:
+
+- Forking the project
+- Cloning the project to your local machine
+- `cd` into the project directory
+- Run `git checkout -b your-branch-name`
+- Make your contributions
+- Push your branch up to your forked repository
+- Open a Pull Request with a detailed description to the development branch of the original project for a review
+
+## Show your support
+
+Give a ⭐️ if you like this project!
