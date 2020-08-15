@@ -8,7 +8,7 @@
 </div>
 <p align="center">This is my graduation app with react by using ChakraUI.</p>
 
-![Home Page](/public/homepage.png)
+![Screen shot](/public/homepage.png)
 
 ## What this App does?
 
@@ -39,7 +39,7 @@ Duong Bao Hung
 
 - Github: [@baohungdev](https://github.com/baohungdev)
 
-- LinkedIn: [Duong Bao Hung](<[www.linkedin.com/in/hung-duong-7382741a7/](https://www.linkedin.com/in/hung-duong-7382741a7/)>)
+- LinkedIn: [Duong Bao Hung](https://www.linkedin.com/in/hung-duong-7382741a7/)
 
 ## 🤝 Contributing
 
