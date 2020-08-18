@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 
-import { CartContext } from "../../providers/cart/cart.provider";
+import { CartContext } from '../../providers/cart/cart.provider';
 
-import { IoMdCart } from "react-icons/io";
-import styled from "@emotion/styled";
-import { Button } from "@chakra-ui/core";
+import { IoMdCart } from 'react-icons/io';
+import styled from '@emotion/styled';
+import { Button } from '@chakra-ui/core';
 
 const NavLinkButton = (props) => (
-  <Button variant="link" color="white" {...props}></Button>
+  <Button variant='link' color='white' {...props}></Button>
 );
 
 const CartIcon = () => {

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
-import { GET_PRODUCT_DETAIL } from "../../components/graphql/product/getProductDetail";
-import withApollo from "../../utils/withApollo";
-import { IProductDetail } from "../../interfaces";
-import { Flex } from "@chakra-ui/core";
-import { Layout } from "../../components/Layout";
-import Bo1x from "../../components/RightBox/RightBox";
-import Loading from "../../components/Loading/Loading";
+import { useQuery } from '@apollo/client';
+import { Flex } from '@chakra-ui/core';
+import { useRouter } from 'next/router';
+import React from 'react';
+import { GET_PRODUCT_DETAIL } from '../../components/graphql/product/getProductDetail';
+import { Layout } from '../../components/Layout';
+import Loading from '../../components/Loading/Loading';
+import Bo1x from '../../components/RightBox/RightBox';
+import { IProductDetail } from '../../interfaces';
+import withApollo from '../../utils/withApollo';
 
 const ProductDetail: React.FC<{}> = () => {
   const router = useRouter();
@@ -30,7 +30,7 @@ const ProductDetail: React.FC<{}> = () => {
 
   return (
     <Layout>
-      <Flex as="section" justifyContent="center">
+      <Flex as='section' justifyContent='center'>
         <Bo1x
           id={productDetail.id}
           images={images}

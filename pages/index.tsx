@@ -1,16 +1,16 @@
-import { Layout } from "../components/Layout";
-import React from "react";
-import { Flex } from "@chakra-ui/core";
-import { Grid } from "@chakra-ui/core/dist";
-import { FlexContainer } from "../components/Layout/FlexContainer";
-import { useQuery } from "@apollo/react-hooks";
-import withApollo from "../utils/withApollo";
-import { GET_ALL_PRODUCTS } from "../components/graphql/product/getAllProduct.query";
-import { usePagination } from "../hooks/usePagination";
-import { PaginationBar } from "../components/PaginationBar/PaginationBar";
-import Loading from "../components/Loading/Loading";
-import GoogleMap from "../components/Map/Map";
-import styled from "@emotion/styled";
+import { useQuery } from '@apollo/react-hooks';
+import { Flex } from '@chakra-ui/core';
+import { Grid } from '@chakra-ui/core/dist';
+import styled from '@emotion/styled';
+import React from 'react';
+import { GET_ALL_PRODUCTS } from '../components/graphql/product/getAllProduct.query';
+import { Layout } from '../components/Layout';
+import { FlexContainer } from '../components/Layout/FlexContainer';
+import Loading from '../components/Loading/Loading';
+import GoogleMap from '../components/Map/Map';
+import { PaginationBar } from '../components/PaginationBar/PaginationBar';
+import { usePagination } from '../hooks/usePagination';
+import withApollo from '../utils/withApollo';
 const Home: React.FC = () => {
   // Query products lists
 
@@ -18,7 +18,7 @@ const Home: React.FC = () => {
     variables: {
       input: {
         page: 1,
-        keyword: "Iphone 11",
+        keyword: 'Iphone 11',
       },
     },
   });
@@ -35,9 +35,9 @@ const Home: React.FC = () => {
 
   return (
     <Layout>
-      <StyledFlex as="section">
+      <StyledFlex as='section'>
         <StyledFlexContainer>
-          <StyledGrid gap={["2rem", "2rem", "5rem"]}>{productCards}</StyledGrid>
+          <StyledGrid gap={['2rem', '2rem', '5rem']}>{productCards}</StyledGrid>
         </StyledFlexContainer>
       </StyledFlex>
       <PaginationBar page={page} maxPage={maxPage} />

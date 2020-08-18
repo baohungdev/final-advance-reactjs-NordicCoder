@@ -1,7 +1,6 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { Divider } from "@chakra-ui/core";
-import { withRouter } from "next/router";
+import { Divider } from '@chakra-ui/core';
+import styled from '@emotion/styled';
+import React from 'react';
 
 export interface IItem {
   id?: string;
@@ -18,10 +17,10 @@ const CartItem: React.FC<ICartItem> = ({ item }) => {
   return (
     <CartItemContainer>
       <Divider />
-      <Image src={item.imgUrl} alt="item" />
+      <Image src={item.imgUrl} alt='item' />
       <CartItemDetails>
         <Name>
-          {item.name.slice(0, 20) + (item.name.length > 20 ? "..." : "")}
+          {item.name.slice(0, 20) + (item.name.length > 20 ? '...' : '')}
         </Name>
         <span>
           {item.quantity} x ${item.price}

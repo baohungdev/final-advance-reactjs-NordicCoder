@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import CheckoutItem from "../components/checkout/checkout-item";
-import { CartContext } from "../providers/cart/cart.provider";
-import styled from "@emotion/styled";
-import { withRouter } from "next/router";
-import StripeCheckoutButton from "../components/checkout/stripe-button";
-import { Layout } from "../components/Layout";
+import styled from '@emotion/styled';
+import { withRouter } from 'next/router';
+import React, { useContext } from 'react';
+import CheckoutItem from '../components/checkout/checkout-item';
+import StripeCheckoutButton from '../components/checkout/stripe-button';
+import { Layout } from '../components/Layout';
+import { CartContext } from '../providers/cart/cart.provider';
 
 const CheckoutPage: React.FC = () => {
   const { cartItems, cartTotal } = useContext(CartContext);
