@@ -12,7 +12,7 @@ import { PaginationBar } from "../components/PaginationBar/PaginationBar";
 import { useRouter } from "next/router";
 import Loading from "../components/Loading/Loading";
 
-const Home = () => {
+const Home: React.FC = () => {
   const router = useRouter();
 
   const { loading, error, data } = useQuery(GET_ALL_PRODUCTS, {

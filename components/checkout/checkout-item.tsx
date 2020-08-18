@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
-
 import { CartContext } from "../../providers/cart/cart.provider";
 import styled from "@emotion/styled";
 import { Button } from "@chakra-ui/core";
+import { IItem } from "../cart/CartItem";
 
-const CheckoutItem = ({ cartItem }) => {
+export interface ICheckouItem {
+  cartItem: IItem;
+}
+
+const CheckoutItem: React.FC<ICheckouItem> = ({ cartItem }) => {
   const { name, imgUrl, price, quantity } = cartItem;
   const { addItem, removeItem, clearItemFromCart } = useContext(CartContext);
 

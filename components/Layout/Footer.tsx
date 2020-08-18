@@ -12,6 +12,7 @@ export const Footer: React.FC = () => {
     <>
       <NavMenu display={["flex", null, "none"]} position="fixed" bottom="0" />
       <Flex
+        bottom="0"
         width={"100%"}
         as="footer"
         backgroundColor="black"
@@ -25,9 +26,13 @@ export const Footer: React.FC = () => {
           </Text>
           {/* prettier-ignore */}
           <Text color="white" width="full">
-            github: <UnderlineLink href="https://github.com/baohungdev">baohungdev</UnderlineLink>
+            <a>
+              github: <UnderlineLink href="https://github.com/baohungdev">baohungdev</UnderlineLink>
+            </a>
             <br/>
+            <a>
             Made with ❤️
+            </a>
           </Text>
         </FlexContainer>
       </Flex>

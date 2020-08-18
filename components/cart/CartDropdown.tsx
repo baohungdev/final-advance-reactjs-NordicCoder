@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
-
+import React, { useContext, ContextType } from "react";
 import CartItem from "./CartItem";
 import { CartContext } from "../../providers/cart/cart.provider";
-
 import { Button } from "@chakra-ui/core";
 import styled from "@emotion/styled";
-import { withRouter } from "next/router";
+import { withRouter, Router } from "next/router";
 import {
   Popover,
   PopoverTrigger,
@@ -17,22 +15,28 @@ import {
   PopoverFooter,
 } from "@chakra-ui/core";
 import { IoMdCart } from "react-icons/io";
-const CartDropdown = ({ router }) => {
-  const { cartItems } = useContext(CartContext);
+import { Context } from "@apollo/client";
+
+export interface ICartDropdown {
+  router: Router;
+}
+
+const CartDropdown: React.FC<ICartDropdown> = ({ router }) => {
+  const { cartItems, cartItemsCount } = useContext(CartContext);
   return (
     <StyledPoper usePortal>
       <PopoverTrigger>
-        <Button size="lg" leftIcon={IoMdCart} variant="link" color="white">
-          Cart
-        </Button>
+        <StyledTriggerButton size="lg" rightIcon={IoMdCart} variant="link">
+          {cartItemsCount > 1
+            ? `${cartItemsCount} items`
+            : `${cartItemsCount} item`}
+        </StyledTriggerButton>
       </PopoverTrigger>
       <StyledPopoverContent zIndex={2}>
         <PopoverArrow />
-        <PopoverHeader fontWeight="500" margin="auto">
-          Hi Buddy!
-        </PopoverHeader>
+        <StyledPoperHeader>Hi Buddy!</StyledPoperHeader>
         <PopoverCloseButton />
-        <PopoverBody justify="center">
+        <StyledPopoverBody>
           {cartItems.length ? (
             cartItems.map((cartItem) => (
               <CartItem key={cartItem.id} item={cartItem} />
@@ -40,8 +44,8 @@ const CartDropdown = ({ router }) => {
           ) : (
             <EmptyMessage>Your cart is empty</EmptyMessage>
           )}
-        </PopoverBody>
-        <PopoverFooter margin="auto">
+        </StyledPopoverBody>
+        <StyledPoperFooter>
           <Button
             leftIcon={IoMdCart}
             onClick={() => {
@@ -50,34 +54,15 @@ const CartDropdown = ({ router }) => {
           >
             Go to Checkout
           </Button>
-        </PopoverFooter>
+        </StyledPoperFooter>
       </StyledPopoverContent>
     </StyledPoper>
   );
 };
-{
-  /* <CartDropdownContainer>
-      <CartItems>
-        {cartItems.length ? (
-          cartItems.map((cartItem) => (
-            <CartItem key={cartItem.id} item={cartItem} />
-          ))
-        ) : (
-          <EmptyMessage>Your cart is empty</EmptyMessage>
-        )}
-      </CartItems>
-      <Button
-        marginTop="auto"
-        onClick={() => {
-          toggleHidden();
-          router.push("/checkout");
-        }}
-      >
-        GO TO CHECKOUT
-      </Button>
-    </CartDropdownContainer> */
-}
+
 export default withRouter(CartDropdown);
+
+// Styles
 
 const CartDropdownContainer = styled.div`
   margin-top: 2px;
@@ -111,4 +96,21 @@ const StyledPoper = styled(Popover)``;
 const StyledPopoverContent = styled(PopoverContent)`
   height: 400px;
   overflow: scroll;
+`;
+
+const StyledTriggerButton = styled(Button)`
+  color: white;
+`;
+
+const StyledPopoverBody = styled(PopoverBody)`
+  text-align: center;
+`;
+
+const StyledPoperHeader = styled(PopoverHeader)`
+  font-weight: 500;
+  margin: auto;
+`;
+const StyledPoperFooter = styled(PopoverFooter)`
+  font-weight: 500;
+  margin: auto;
 `;

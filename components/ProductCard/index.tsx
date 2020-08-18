@@ -5,17 +5,22 @@ import {
   Image,
   Link,
   PseudoBox,
-  Skeleton,
   Text,
-  theme,
   Tooltip,
+  useToast,
 } from "@chakra-ui/core";
+
 import NextLink from "next/link";
-import React, { useState, useContext } from "react";
+import React, { useContext, Fragment } from "react";
 import { IProduct } from "../../interfaces";
 import { ucFirstAllWords } from "../../utils";
 import styled from "@emotion/styled";
 import { CartContext } from "../../providers/cart/cart.provider";
+import ReactHtmlParser, {
+  processNodes,
+  convertNodeToElement,
+} from "react-html-parser";
+
 var numeral = require("numeral");
 
 const ProductCard: React.FC<IProduct> = (props) => {
@@ -28,8 +33,9 @@ const ProductCard: React.FC<IProduct> = (props) => {
     imgUrl: props.imgUrl,
   };
 
+  const toast = useToast();
   return (
-    <div>
+    <>
       <Link
         _hover={{
           textDecoration: "none",
@@ -55,12 +61,21 @@ const ProductCard: React.FC<IProduct> = (props) => {
             borderColor="#BBB"
           >
             <NextLink href={`/detail/${props.id}`}>
-              <Image
-                width="100%"
-                height="13rem"
-                objectFit="contain"
-                src={props.imgUrl}
-              />
+              <Tooltip
+                aria-label="hung"
+                hasArrow
+                label="View it"
+                placement="bottom"
+                bg="blue.500"
+                fontSize="20px"
+              >
+                <Image
+                  width="100%"
+                  height="13rem"
+                  objectFit="contain"
+                  src={props.imgUrl}
+                />
+              </Tooltip>
             </NextLink>
           </Box>
 
@@ -97,7 +112,8 @@ const ProductCard: React.FC<IProduct> = (props) => {
               hasArrow
               label="Add To Cart"
               placement="bottom"
-              bg="green.600"
+              bg="blue.500"
+              fontSize="20px"
             >
               <StyledButton
                 margin="auto"
@@ -108,7 +124,15 @@ const ProductCard: React.FC<IProduct> = (props) => {
                 borderColor="red.500"
                 variantColor="teal"
                 variant="outline"
-                onClick={() => addItem(item)}
+                onClick={() => {
+                  toast({
+                    title: "Added to cart",
+                    description: `${props.name}`,
+                    status: "info",
+                    duration: 2000,
+                    isClosable: true,
+                  });
+                }}
               >
                 Buy it !
               </StyledButton>
@@ -116,7 +140,7 @@ const ProductCard: React.FC<IProduct> = (props) => {
           </Flex>
         </PseudoBox>
       </Link>
-    </div>
+    </>
   );
 };
 
@@ -124,6 +148,10 @@ const StyledButton = styled(Button)`
   &:hover {
     background-color: #fff;
   }
+`;
+
+const Stylediframe = styled.iframe`
+  height: 100%;
 `;
 
 export default ProductCard;

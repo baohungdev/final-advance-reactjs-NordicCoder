@@ -23,7 +23,7 @@ class RightBox extends Component<IRightBox, ImageState> {
   constructor(props) {
     super(props);
     this.state = {
-      Image: this.props.images[0],
+      Image: this.props.images[1],
     };
   }
 
@@ -37,7 +37,7 @@ class RightBox extends Component<IRightBox, ImageState> {
       id,
       addItem,
     } = this.props;
-    console.log(router);
+
     const item = {
       imgUrl: `https://media3.scdn.vn${images[0]}`,
       name: name,
@@ -48,7 +48,7 @@ class RightBox extends Component<IRightBox, ImageState> {
     return (
       <Flex as="section" justifyContent="center">
         <Flex
-          flex="0 22 70rem"
+          flex="0 22 60rem"
           backgroundColor="white"
           justifyContent="center"
           flexWrap="wrap"
@@ -81,7 +81,6 @@ class RightBox extends Component<IRightBox, ImageState> {
             justifyContent="center"
             flexWrap="wrap"
             alignItems="center"
-            paddingBottom="4px"
           >
             <Text fontSize="2xl" width="100%">
               {name}

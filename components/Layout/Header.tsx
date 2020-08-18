@@ -16,7 +16,7 @@ import { FlexContainer } from "./FlexContainer";
 import { theme } from "../../theme";
 import styled from "@emotion/styled";
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const [show, setShow] = useState(true);
   const [value, setValue] = useState("");
   return (

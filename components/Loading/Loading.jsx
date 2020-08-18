@@ -3,7 +3,7 @@ import { Layout } from "../Layout";
 import { Text, Flex } from "@chakra-ui/core";
 import { PongSpinner } from "react-spinners-kit";
 
-const Loading: React.FC<{}> = () => (
+const Loading = () => (
   <Layout>
     <Flex justify="center">
       <Text>

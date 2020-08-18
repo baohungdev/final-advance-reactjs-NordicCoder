@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-
 import CheckoutItem from "../components/checkout/checkout-item";
 import { CartContext } from "../providers/cart/cart.provider";
 import styled from "@emotion/styled";
@@ -7,7 +6,7 @@ import { withRouter } from "next/router";
 import StripeCheckoutButton from "../components/checkout/stripe-button";
 import { Layout } from "../components/Layout";
 
-const CheckoutPage = () => {
+const CheckoutPage: React.FC = () => {
   const { cartItems, cartTotal } = useContext(CartContext);
 
   return (
@@ -37,7 +36,7 @@ const CheckoutPage = () => {
         <TestWarning>
           *Please use the following test credit card for payments*
           <br />
-          4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
+          4242 4242 4242 4242 - Exp: any future date- CVV: any 3 digits
         </TestWarning>
         <StyledButton price={cartTotal} />
       </CheckoutPageContainer>
@@ -46,6 +45,8 @@ const CheckoutPage = () => {
 };
 
 export default withRouter(CheckoutPage);
+
+// styles
 
 const CheckoutPageContainer = styled.div`
   width: 90%;
