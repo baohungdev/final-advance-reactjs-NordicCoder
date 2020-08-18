@@ -54,31 +54,30 @@ const ProductCard: React.FC<IProduct> = (props) => {
           _hover={{ borderColor: "blue.500" }}
           borderRadius="5px"
         >
-          <Box
-            backgroundColor="white"
-            flex="0 1 100%"
-            borderBottomWidth="1px"
-            borderColor="#BBB"
+          <Tooltip
+            aria-label="hung"
+            hasArrow
+            label="View it"
+            placement="bottom"
+            bg="blue.500"
+            fontSize="20px"
           >
-            <NextLink href={`/detail/${props.id}`}>
-              <Tooltip
-                aria-label="hung"
-                hasArrow
-                label="View it"
-                placement="bottom"
-                bg="blue.500"
-                fontSize="20px"
-              >
+            <Box
+              backgroundColor="white"
+              flex="0 1 100%"
+              borderBottomWidth="1px"
+              borderColor="#BBB"
+            >
+              <NextLink href={`/detail/${props.id}`}>
                 <Image
                   width="100%"
                   height="13rem"
                   objectFit="contain"
                   src={props.imgUrl}
                 />
-              </Tooltip>
-            </NextLink>
-          </Box>
-
+              </NextLink>
+            </Box>
+          </Tooltip>
           <Flex
             paddingX="10px"
             paddingY="10px"
