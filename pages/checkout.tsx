@@ -36,11 +36,7 @@ const CheckoutPage: React.FC = () => {
         <TestWarning>
           *Please use the following test credit card for payments*
           <br />
-<<<<<<< HEAD
           4242 4242 4242 4242 - Exp: any future date- CVV: any 3 digits
-=======
-          4242 4242 4242 4242 - Exp: future day - CVV: any 3 digits
->>>>>>> 194b3ca3bdbdd115609d40200860415c38d64013
         </TestWarning>
         <StyledButton price={cartTotal} />
       </CheckoutPageContainer>
