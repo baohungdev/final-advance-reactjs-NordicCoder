@@ -9,17 +9,12 @@ import {
   Tooltip,
   useToast,
 } from "@chakra-ui/core";
-
-import NextLink from "next/link";
-import React, { useContext, Fragment } from "react";
-import { IProduct } from "../../interfaces";
-import { ucFirstAllWords } from "../../utils";
 import styled from "@emotion/styled";
+import NextLink from "next/link";
+import React, { useContext } from "react";
+import { IProduct } from "../../interfaces";
 import { CartContext } from "../../providers/cart/cart.provider";
-import ReactHtmlParser, {
-  processNodes,
-  convertNodeToElement,
-} from "react-html-parser";
+import { ucFirstAllWords } from "../../utils";
 
 var numeral = require("numeral");
 
@@ -125,12 +120,14 @@ const ProductCard: React.FC<IProduct> = (props) => {
                 variantColor="teal"
                 variant="outline"
                 onClick={() => {
+                  addItem(item);
                   toast({
                     title: "Added to cart",
                     description: `${props.name}`,
                     status: "info",
-                    duration: 2000,
+                    duration: 500,
                     isClosable: true,
+                    position: "top",
                   });
                 }}
               >
