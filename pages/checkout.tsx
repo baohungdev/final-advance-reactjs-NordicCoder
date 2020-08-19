@@ -88,6 +88,6 @@ const TestWarning = styled.div`
 `;
 
 const StyledButton = styled(StripeCheckoutButton)`
-  margin-left: auto;
-  margin-top: 50px;
+  margin: auto;
+  padding: 5rem;
 `;
