@@ -1,21 +1,20 @@
-import React, { useContext, ContextType } from "react";
-import CartItem from "./CartItem";
-import { CartContext } from "../../providers/cart/cart.provider";
-import { Button } from "@chakra-ui/core";
-import styled from "@emotion/styled";
-import { withRouter, Router } from "next/router";
 import {
+  Button,
   Popover,
-  PopoverTrigger,
-  PopoverContent,
   PopoverArrow,
-  PopoverHeader,
-  PopoverCloseButton,
   PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
   PopoverFooter,
-} from "@chakra-ui/core";
-import { IoMdCart } from "react-icons/io";
-import { Context } from "@apollo/client";
+  PopoverHeader,
+  PopoverTrigger,
+} from '@chakra-ui/core';
+import styled from '@emotion/styled';
+import { Router, withRouter } from 'next/router';
+import React, { useContext } from 'react';
+import { IoMdCart } from 'react-icons/io';
+import { CartContext } from '../../providers/cart/cart.provider';
+import CartItem from './CartItem';
 
 export interface ICartDropdown {
   router: Router;
@@ -26,7 +25,7 @@ const CartDropdown: React.FC<ICartDropdown> = ({ router }) => {
   return (
     <StyledPoper usePortal>
       <PopoverTrigger>
-        <StyledTriggerButton size="lg" rightIcon={IoMdCart} variant="link">
+        <StyledTriggerButton size='lg' rightIcon={IoMdCart} variant='link'>
           {cartItemsCount > 1
             ? `${cartItemsCount} items`
             : `${cartItemsCount} item`}
@@ -49,7 +48,7 @@ const CartDropdown: React.FC<ICartDropdown> = ({ router }) => {
           <Button
             leftIcon={IoMdCart}
             onClick={() => {
-              router.push("/checkout");
+              router.push('/checkout');
             }}
           >
             Go to Checkout

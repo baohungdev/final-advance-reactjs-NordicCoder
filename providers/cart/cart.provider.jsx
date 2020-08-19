@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from 'react';
 
 import {
   addItemToCart,
@@ -6,7 +6,7 @@ import {
   filterItemFromCart,
   getCartItemsCount,
   getCartTotal,
-} from "./cart.utils";
+} from './cart.utils';
 
 export const CartContext = createContext({
   hidden: true,

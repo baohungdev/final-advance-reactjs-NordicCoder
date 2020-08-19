@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../providers/cart/cart.provider";
-import styled from "@emotion/styled";
-import { Button } from "@chakra-ui/core";
-import { IItem } from "../cart/CartItem";
+import { Button } from '@chakra-ui/core';
+import styled from '@emotion/styled';
+import React, { useContext } from 'react';
+import { CartContext } from '../../providers/cart/cart.provider';
+import { IItem } from '../cart/CartItem';
 
 export interface ICheckouItem {
   cartItem: IItem;
@@ -15,10 +15,10 @@ const CheckoutItem: React.FC<ICheckouItem> = ({ cartItem }) => {
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <StyledImage src={imgUrl} alt="item" />
+        <StyledImage src={imgUrl} alt='item' />
       </ImageContainer>
       <StyledName>
-        {name.slice(0, 20) + (name.length > 20 ? "..." : "")}
+        {name.slice(0, 20) + (name.length > 20 ? '...' : '')}
       </StyledName>
       <StyledQuantity>
         <StyledArrow onClick={() => removeItem(cartItem)}>&#10094;</StyledArrow>
@@ -27,7 +27,7 @@ const CheckoutItem: React.FC<ICheckouItem> = ({ cartItem }) => {
       </StyledQuantity>
       <StyledPrice>{price}</StyledPrice>
       <Button
-        className="remove-button"
+        className='remove-button'
         onClick={() => clearItemFromCart(cartItem)}
       >
         &#10005;

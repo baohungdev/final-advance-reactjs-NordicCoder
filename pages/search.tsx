@@ -1,16 +1,15 @@
-import { Layout } from "../components/Layout";
-import React from "react";
-import { Flex } from "@chakra-ui/core";
-import { Grid } from "@chakra-ui/core/dist";
-import { FlexContainer } from "../components/Layout/FlexContainer";
-import { useQuery } from "@apollo/react-hooks";
-import withApollo from "../utils/withApollo";
-import { GET_ALL_PRODUCTS } from "../components/graphql/product/getAllProduct.query";
-import { usePagination } from "../hooks/usePagination";
-import { PaginationBar } from "../components/PaginationBar/PaginationBar";
-
-import { useRouter } from "next/router";
-import Loading from "../components/Loading/Loading";
+import { useQuery } from '@apollo/react-hooks';
+import { Flex } from '@chakra-ui/core';
+import { Grid } from '@chakra-ui/core/dist';
+import { useRouter } from 'next/router';
+import React from 'react';
+import { GET_ALL_PRODUCTS } from '../components/graphql/product/getAllProduct.query';
+import { Layout } from '../components/Layout';
+import { FlexContainer } from '../components/Layout/FlexContainer';
+import Loading from '../components/Loading/Loading';
+import { PaginationBar } from '../components/PaginationBar/PaginationBar';
+import { usePagination } from '../hooks/usePagination';
+import withApollo from '../utils/withApollo';
 
 const Home: React.FC = () => {
   const router = useRouter();
@@ -33,12 +32,12 @@ const Home: React.FC = () => {
   const [page, maxPage, productCards] = usePagination(products);
   return (
     <Layout>
-      <Flex as="section" justifyContent="center" backgroundColor="#F9F9F9">
-        <FlexContainer padding="5rem" flexWrap={"wrap"}>
+      <Flex as='section' justifyContent='center' backgroundColor='#F9F9F9'>
+        <FlexContainer padding='5rem' flexWrap={'wrap'}>
           <Grid
-            width="100%"
-            templateColumns="repeat(auto-fill, minmax(12em, 1fr))"
-            gap={["2rem", "2rem", "5rem"]}
+            width='100%'
+            templateColumns='repeat(auto-fill, minmax(12em, 1fr))'
+            gap={['2rem', '2rem', '5rem']}
           >
             {productCards}
           </Grid>
