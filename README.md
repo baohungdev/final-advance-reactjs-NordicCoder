@@ -26,6 +26,75 @@
 - GraphQL
 - Typescript
 
+## Tree
+
+├─ components
+│  ├─ Layout
+│  │  ├─ FlexContainer.tsx
+│  │  ├─ FlexNavItem.tsx
+│  │  ├─ Footer.tsx
+│  │  ├─ Header.tsx
+│  │  ├─ NavMenu.tsx
+│  │  └─ index.tsx
+│  ├─ Loading
+│  │  └─ Loading.jsx
+│  ├─ Map
+│  │  └─ Map.jsx
+│  ├─ PaginationBar
+│  │  └─ PaginationBar.tsx
+│  ├─ ProductCard
+│  │  └─ index.tsx
+│  ├─ RightBox
+│  │  └─ RightBox.tsx
+│  ├─ cart
+│  │  ├─ CartDropdown.tsx
+│  │  ├─ CartIcon.jsx
+│  │  └─ CartItem.tsx
+│  ├─ checkout
+│  │  ├─ checkout-item.tsx
+│  │  └─ stripe-button.tsx
+│  └─ graphql
+│     └─ product
+│        ├─ getAllProduct.query.ts
+│        └─ getProductDetail.ts
+├─ hooks
+│  └─ usePagination.tsx
+├─ interfaces
+│  └─ index.ts
+├─ pages
+│  ├─ detail
+│  │  └─ [id].tsx
+│  ├─ _app.jsx
+│  ├─ _document.tsx
+│  ├─ checkout.tsx
+│  ├─ index.tsx
+│  └─ search.tsx
+├─ providers
+│  └─ cart
+│     ├─ cart.provider.jsx
+│     └─ cart.utils.js
+├─ public
+│  ├─ favicon.ico
+│  ├─ homepage.png
+│  └─ vercel.svg
+├─ theme
+│  ├─ index.ts
+│  └─ theme.ts
+├─ utils
+│  ├─ index.ts
+│  └─ withApollo.js
+├─ .eslintrc.json
+├─ .gitignore
+├─ .prettierignore
+├─ .prettierrc.json
+├─ README.md
+├─ next-env.d.ts
+├─ package-lock.json
+├─ package.json
+├─ tsconfig.json
+└─ yarn.lock
+
+
 ## Setup
 
 - Clone the repository

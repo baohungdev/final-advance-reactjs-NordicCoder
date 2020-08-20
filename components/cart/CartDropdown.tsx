@@ -10,17 +10,13 @@ import {
   PopoverTrigger,
 } from '@chakra-ui/core';
 import styled from '@emotion/styled';
-import { Router, withRouter } from 'next/router';
+import { withRouter } from 'next/router';
 import React, { useContext } from 'react';
 import { IoMdCart } from 'react-icons/io';
 import { CartContext } from '../../providers/cart/cart.provider';
 import CartItem from './CartItem';
 
-export interface ICartDropdown {
-  router: Router;
-}
-
-const CartDropdown: React.FC<ICartDropdown> = ({ router }) => {
+const CartDropdown = (props) => {
   const { cartItems, cartItemsCount } = useContext(CartContext);
   return (
     <StyledPoper usePortal>
@@ -48,7 +44,7 @@ const CartDropdown: React.FC<ICartDropdown> = ({ router }) => {
           <Button
             leftIcon={IoMdCart}
             onClick={() => {
-              router.push('/checkout');
+              props.router.push('/checkout');
             }}
           >
             Go to Checkout
