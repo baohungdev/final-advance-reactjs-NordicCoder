@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "validate": false
+      }
+    ],
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -24,8 +30,8 @@
     "components/ProductCard/index.jsx",
     "components/RightBox/RightBox.jsx",
     "components/Map/Map.jsx",
-    "components/cart/CartDropdown.jsx",
-    "components/cart/CartItem.jsx",
+    "components/cart/CartDropdown.tsx",
+    "components/cart/CartItem.tsx",
     "components/cart/CartIcon.jsx"
   ],
   "noImplicitAny": false

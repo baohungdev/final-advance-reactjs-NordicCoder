@@ -1,10 +1,10 @@
-import React, { useState, Component, Fragment, useContext } from "react";
-import { Flex, Image, Divider, Text, Button } from "@chakra-ui/core";
-import { IoMdCart, IoMdArrowBack } from "react-icons/io";
-import ReactHtmlParser from "react-html-parser";
-import styled from "@emotion/styled";
-import { withRouter, Router } from "next/router";
-import { CartContext } from "../../providers/cart/cart.provider";
+import { Button, Divider, Flex, Image, Text } from '@chakra-ui/core';
+import styled from '@emotion/styled';
+import { Router, withRouter } from 'next/router';
+import React, { Component, useContext } from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import { IoMdArrowBack, IoMdCart } from 'react-icons/io';
+import { CartContext } from '../../providers/cart/cart.provider';
 
 type IRightBox = {
   id: number;
@@ -23,7 +23,7 @@ class RightBox extends Component<IRightBox, ImageState> {
   constructor(props) {
     super(props);
     this.state = {
-      Image: this.props.images[0],
+      Image: this.props.images[1],
     };
   }
 
@@ -37,7 +37,7 @@ class RightBox extends Component<IRightBox, ImageState> {
       id,
       addItem,
     } = this.props;
-    console.log(router);
+
     const item = {
       imgUrl: `https://media3.scdn.vn${images[0]}`,
       name: name,
@@ -46,48 +46,47 @@ class RightBox extends Component<IRightBox, ImageState> {
     };
 
     return (
-      <Flex as="section" justifyContent="center">
+      <Flex as='section' justifyContent='center'>
         <Flex
-          flex="0 22 70rem"
-          backgroundColor="white"
-          justifyContent="center"
-          flexWrap="wrap"
-          paddingX={["1rem", null, "5rem"]}
-          borderColor="blue.200"
+          flex='0 22 60rem'
+          backgroundColor='white'
+          justifyContent='center'
+          flexWrap='wrap'
+          paddingX={['1rem', null, '5rem']}
+          borderColor='blue.200'
         >
           {/* big image */}
-          <Flex flex="0 2 25rem" paddingY={["2rem", null, "5rem"]}>
+          <Flex flex='0 2 25rem' paddingY={['2rem', null, '5rem']}>
             <Image
-              maxHeight="400px"
-              borderWidth="2px"
-              borderColor="black.200"
-              borderRadius="5px"
+              maxHeight='400px'
+              borderWidth='2px'
+              borderColor='black.200'
+              borderRadius='5px'
               src={`https://media3.scdn.vn${this.state.Image}`}
             />
           </Flex>
           {/* divider */}
           <Flex
-            display={["none", null, "flex"]}
-            flex="0 1 5rem"
-            paddingY="2rem"
-            justifyContent="center"
+            display={['none', null, 'flex']}
+            flex='0 1 5rem'
+            paddingY='2rem'
+            justifyContent='center'
           >
-            <Divider orientation="vertical" borderColor="#BBB" />
+            <Divider orientation='vertical' borderColor='#BBB' />
           </Flex>
           {/* name */}
           <Flex
-            flex="0 1 20rem"
-            paddingY={["2rem", null, "5rem"]}
-            justifyContent="center"
-            flexWrap="wrap"
-            alignItems="center"
-            paddingBottom="4px"
+            flex='0 1 20rem'
+            paddingY={['2rem', null, '5rem']}
+            justifyContent='center'
+            flexWrap='wrap'
+            alignItems='center'
           >
-            <Text fontSize="2xl" width="100%">
+            <Text fontSize='2xl' width='100%'>
               {name}
             </Text>
-            <Flex flex="0 1 100%">
-              <Text fontSize="3xl" fontWeight={"100"}></Text>
+            <Flex flex='0 1 100%'>
+              <Text fontSize='3xl' fontWeight={'100'}></Text>
             </Flex>
             {/* list images */}
             {images
@@ -96,34 +95,34 @@ class RightBox extends Component<IRightBox, ImageState> {
                 <StyledImage
                   src={`https://media3.scdn.vn${img}`}
                   onClick={() => this.setState({ Image: img })}
-                  height="70px"
-                  marginTop="10px"
-                  width="78px"
+                  height='70px'
+                  marginTop='10px'
+                  width='78px'
                 />
               ))}
 
-            <Flex paddingY="1rem" flex="0 1 100%">
-              <Divider orientation="vertical" borderColor="#BBB" />
+            <Flex paddingY='1rem' flex='0 1 100%'>
+              <Divider orientation='vertical' borderColor='#BBB' />
               <Button
-                variantColor="primary"
-                width="100%"
+                variantColor='primary'
+                width='100%'
                 leftIcon={IoMdCart}
                 onClick={() => addItem(item)}
               >
                 {price}
               </Button>
-              <Divider orientation="vertical" borderColor="#BBB" />
+              <Divider orientation='vertical' borderColor='#BBB' />
               <Button
-                size="md"
-                variantColor="secondary"
-                onClick={() => router.push("/")}
+                size='md'
+                variantColor='secondary'
+                onClick={() => router.push('/')}
               >
                 <IoMdArrowBack></IoMdArrowBack>
               </Button>
-              <Divider orientation="vertical" borderColor="#BBB" />
+              <Divider orientation='vertical' borderColor='#BBB' />
             </Flex>
           </Flex>
-          <Flex paddingBottom="2rem"></Flex>
+          <Flex paddingBottom='2rem'></Flex>
           {ReactHtmlParser(description)}
         </Flex>
       </Flex>

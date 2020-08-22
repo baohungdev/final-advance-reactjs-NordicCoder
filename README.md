@@ -26,6 +26,7 @@
 - GraphQL
 - Typescript
 
+
 ## Setup
 
 - Clone the repository

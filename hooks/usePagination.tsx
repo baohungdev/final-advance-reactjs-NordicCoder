@@ -1,7 +1,7 @@
-import React from "react";
-import { useRouter } from "next/router";
-import ProductCard from "../components/ProductCard";
-import { IProduct } from "../interfaces";
+import { useRouter } from 'next/router';
+import React from 'react';
+import ProductCard from '../components/ProductCard';
+import { IProduct } from '../interfaces';
 
 export const usePagination = (
   products: Array<IProduct>
@@ -10,7 +10,7 @@ export const usePagination = (
   const { p } = router.query;
   let productCards: Array<JSX.Element>;
   let page: number;
-  if (typeof p === "string") {
+  if (typeof p === 'string') {
     page = parseInt(p) || 1;
   } else {
     page = 1;

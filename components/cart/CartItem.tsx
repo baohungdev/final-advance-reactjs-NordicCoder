@@ -1,16 +1,26 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { Text, Divider } from "@chakra-ui/core";
-import { withRouter } from "next/router";
+import { Divider } from '@chakra-ui/core';
+import styled from '@emotion/styled';
+import React from 'react';
 
-const CartItem = ({ item }) => {
+export interface IItem {
+  id?: string;
+  imgUrl: string;
+  quantity: Number;
+  name: string;
+  price: string;
+}
+export interface ICartItem {
+  item: IItem;
+}
+
+const CartItem: React.FC<ICartItem> = ({ item }) => {
   return (
     <CartItemContainer>
       <Divider />
-      <Image src={item.imgUrl} alt="item" />
+      <Image src={item.imgUrl} alt='item' />
       <CartItemDetails>
         <Name>
-          {item.name.slice(0, 20) + (item.name.length > 20 ? "..." : "")}
+          {item.name.slice(0, 20) + (item.name.length > 20 ? '...' : '')}
         </Name>
         <span>
           {item.quantity} x ${item.price}
@@ -20,7 +30,7 @@ const CartItem = ({ item }) => {
   );
 };
 
-export default withRouter(CartItem);
+export default CartItem;
 
 const CartItemContainer = styled.div`
   width: 100%;
@@ -46,7 +56,8 @@ const CartItemDetails = styled.div`
 
 const Name = styled.a`
   font-size: 15px;
-  &: hover {
+
+  &:hover {
     text-decoration: underline;
   }
 `;
